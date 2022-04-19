@@ -1,0 +1,9 @@
+svg {
+  padding: 0;
+}
+.wrapper {
+  transform: translate(60px, 100px);
+}
+circle {
+  opacity: 0.2;
+}
