@@ -1,0 +1,19 @@
+html {
+  background-color: #323232;
+}
+
+.title-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 100px;
+}
+
+.subtitle {
+  font-family: 'Raleway', sans-serif;
+}
+
+.translation {
+  color: #A6A6A6;
+  font-family: 'Open Sans', sans-serif;
+  padding-right: 10px;
+  text-align: right;
+}
