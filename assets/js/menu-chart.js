@@ -1,12 +1,15 @@
 // Call & draw chart on  page loaded
 //// SETUP
 document.addEventListener('DOMContentLoaded', function(){
-  drawChart();
+  d3.json('https://raw.githubusercontent.com/sxxnx/DataSetsTemp/main/sxxnx-gthb-data/dumpdata2.json').then(function(data) {
+      drawChart(data);
+  })
 });
 
 // Draw Chart
-function drawChart(){
+function drawChart(data){
   // CONST
+  const langData = data;
   // random data
   const nodeData = initNodedArray();
   // Param of chart stored in object
@@ -18,7 +21,7 @@ function drawChart(){
       right: 10,
       bottom: 10,
       left: 10,
-      center: 150
+      center: 100
     }
   };
 
@@ -38,6 +41,12 @@ function drawChart(){
   //              .attr('height', chartParam.height)
   //              // .attr('overflow', 'hidden')
   //              .classed('g-menu', true)
+  // VARS
+  const colors = {
+    lightPurple: '#CDB2E8',
+    lightGray: '#D1CCD6'
+  }
+  const name = 'SK'
 
   // Config scales ffor chart
   const x = d3.scaleLinear()
@@ -63,8 +72,11 @@ function drawChart(){
                          .attr('cy', y(0.5))
                          .attr('r', innerRadius)
                          .style('fill', 'none')
-                         .style('stroke', '#888')
+                         .style('stroke', 'none')
                          .style('stroke-dasharray', 4)
+
+
+
 
 
   // Simulation with radial force
@@ -99,7 +111,6 @@ function drawChart(){
   // data = dataset (array of Objects)
   // return node array of obj
   function drawNodes(svg, data){
-    console.log(innerRadius)
 
     // SVG path to display nodes around the guideCircle
     let arc = d3.arc()
@@ -122,12 +133,11 @@ function drawChart(){
                     .selectAll('.node')
                     .data(circleGuidePie(data)).enter()
                     .append('circle')
-                      .style('fill', 'red')
-                      .style('stroke', 'red')
+                      .style('fill', colors.lightPurple)
+                      .style('opacity', 0.5)
                       .classed('node', true)
                       .attr('cx', function(d){
                         let centroid = arc.centroid(d)
-                        console.log(x(centroid[0]))
                         return centroid[0] + x(0.5)
                       })
                       .attr('cy', function(d){
@@ -135,7 +145,8 @@ function drawChart(){
                           return centroid[1] + y(0.5)
                         })
                       .attr('r', function(d, i){
-                        return nodeData[i].r;
+                        // iterate through nodeData since d is configured for pie
+                        return nodeData[i].r * 1.5;
                       });
   return circle;
   }
@@ -147,6 +158,29 @@ function drawChart(){
             .attr('cy', d => d.y)
       });
   }
+
+  let title = svg.append('text')
+                    .text(name)
+                    .classed('title-name', true)
+                    .style('fill', colors.lightGray);
+  // Center name title
+  let titleSelect = d3.select('.title-name').node();
+  let titleW = titleSelect.getBoundingClientRect().width;
+  let titleH = titleSelect.getBoundingClientRect().height;
+  title.attr('x', (x(0.5)) - titleW / 2)
+       .attr('y', (y(0.5)));
+
+  let subTitle = svg.append('text')
+                    .text(data[0].en)
+                    .classed('subtitle', true)
+                    .style('fill', colors.lightGray);
+
+  let subtitleSelect = d3.select('.subtitle').node();
+  let subtitleW = subtitleSelect.getBoundingClientRect().width;
+  let subtitleH = subtitleSelect.getBoundingClientRect().height;
+  subTitle.attr('x', (x(0.5)) - subtitleW / 2)
+          .attr('y', (y(0.5) + chartParam.margin.top * 2.5));
+
 
   // For testing purpose
   drawNodes(svg, nodes);
