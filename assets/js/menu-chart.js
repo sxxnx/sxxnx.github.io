@@ -112,6 +112,13 @@ function drawChart(data){
   // return node array of obj
   function drawNodes(svg, data){
 
+    // getRandomInt
+    // function that returns a random Int
+    // source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
     // SVG path to display nodes around the guideCircle
     let arc = d3.arc()
                 .innerRadius(innerRadius)
@@ -136,6 +143,11 @@ function drawChart(data){
                       .style('fill', colors.lightPurple)
                       .style('opacity', 0.5)
                       .classed('node', true)
+                      .attr('class', function(){
+                        //Get random number for natural animation
+                        let rdmNumb = getRandomInt(11)
+                        return 'circle-anim-'+ rdmNumb
+                      })
                       .attr('cx', function(d){
                         let centroid = arc.centroid(d)
                         return centroid[0] + x(0.5)
@@ -148,7 +160,14 @@ function drawChart(data){
                         // iterate through nodeData since d is configured for pie
                         return nodeData[i].r * 1.5;
                       });
-  return circle;
+    // Animations classes
+    circle.on('mouseover', function(d, i) {
+      // console.log(i.index)
+          d3.select(this).classed('circle-hover', true);
+        })
+    circle.on('mouseout', function() {
+      d3.select(this).classed('circle-hover', false);
+    })
   }
 
   // ticked
@@ -159,6 +178,7 @@ function drawChart(data){
       });
   }
 
+  // Text of the page
   let title = svg.append('text')
                     .text(name)
                     .classed('title-name', true)
@@ -180,7 +200,6 @@ function drawChart(data){
   let subtitleH = subtitleSelect.getBoundingClientRect().height;
   subTitle.attr('x', (x(0.5)) - subtitleW / 2)
           .attr('y', (y(0.5) + chartParam.margin.top * 2.5));
-
 
   // For testing purpose
   drawNodes(svg, nodes);
