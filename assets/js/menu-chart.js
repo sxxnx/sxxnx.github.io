@@ -1,5 +1,6 @@
 // Call & draw chart on  page loaded
 //// SETUP
+// TODO RAW DATA
 document.addEventListener('DOMContentLoaded', function(){
   d3.json('https://raw.githubusercontent.com/sxxnx/DataSetsTemp/main/sxxnx-gthb-data/dumpdata2.json').then(function(data) {
       drawChart(data);
@@ -143,10 +144,15 @@ function drawChart(data){
                       .style('fill', colors.lightPurple)
                       .style('opacity', 0.5)
                       .classed('node', true)
-                      .attr('class', function(){
-                        //Get random number for natural animation
-                        let rdmNumb = getRandomInt(11)
-                        return 'circle-anim-'+ rdmNumb
+                      .attr('class', function(d, i){
+                        if(i == 99 || i == 33 || i == 67) {
+                          return 'circle-menu'
+                        }
+                        else {
+                          //Get random number for natural animation
+                          let rdmNumb = getRandomInt(11)
+                          return 'circle-anim-'+ rdmNumb
+                        }
                       })
                       .attr('cx', function(d){
                         let centroid = arc.centroid(d)
@@ -160,13 +166,25 @@ function drawChart(data){
                         // iterate through nodeData since d is configured for pie
                         return nodeData[i].r * 1.5;
                       });
+
+
+    d3.selectAll('.circle-menu')
+      .attr('r', 50);
+
     // Animations classes
     circle.on('mouseover', function(d, i) {
-      // console.log(i.index)
-          d3.select(this).classed('circle-hover', true);
-        })
+      console.log(i.index)
+      d3.select(this).classed('circle-hover', true);
+      if(d3.select(this).attr('class') == 'circle-menu circle-hover'){
+        d3.select(this).attr('r', 100);
+      }
+    })
     circle.on('mouseout', function() {
       d3.select(this).classed('circle-hover', false);
+      if(d3.select(this).attr('class') == 'circle-menu'){
+        // Reset r
+        d3.select(this).attr('r', 50);
+      }
     })
   }
 

@@ -18,6 +18,13 @@ html {
   text-align: right;
 }
 
+.circle-menu {
+  fill: #9563C6 !important; /* override d3 js default style */
+  opacity: 0.8 !important; /* override d3 js default style */
+  transition: r 0.9s;
+  -webkit-transition: r 0.9s;
+}
+
 
 /* ANIMATIONS */
 @-webkit-keyframes pulsate-fwd {
@@ -147,26 +154,26 @@ html {
 }
 
 .circle-anim-1 {
-  -webkit-animation: pulsate-fwd 15.5s ease-in-out infinite both;
-	        animation: pulsate-fwd 15.5s ease-in-out infinite both;
+  -webkit-animation: pulsate-fwd 19.5s ease-in-out infinite both;
+	        animation: pulsate-fwd 19.5s ease-in-out infinite both;
 }
 .circle-anim-2 {
-  -webkit-animation: pulsate-bck 17s ease-in-out infinite both;
-	        animation: pulsate-bck 17s ease-in-out infinite both;
+  -webkit-animation: pulsate-bck 18.5s ease-in-out infinite both;
+	        animation: pulsate-bck 18.5s ease-in-out infinite both;
 }
 .circle-anim-3 {
-  -webkit-animation: heartbeat 16s ease-in-out infinite both;
-	        animation: heartbeat 16s ease-in-out infinite both;
+  -webkit-animation: heartbeat 18s ease-in-out infinite both;
+	        animation: heartbeat 18s ease-in-out infinite both;
 }
 .circle-anim-4 {
-  -webkit-animation: pulsate-fwd 18s ease-in-out infinite both;
-	        animation: pulsate-fwd 18s ease-in-out infinite both;
+  -webkit-animation: pulsate-fwd 19s ease-in-out infinite both;
+	        animation: pulsate-fwd 19s ease-in-out infinite both;
 }
 .circle-anim-5 {
-  -webkit-animation: pulsate-bck 16s ease-in-out infinite both;
-	        animation: pulsate-bck 16s ease-in-out infinite both;
+  -webkit-animation: pulsate-bck 20s ease-in-out infinite both;
+	        animation: pulsate-bck 20s ease-in-out infinite both;
 }
 .circle-anim-6 {
-  -webkit-animation: heartbeat 17.5s ease-in-out infinite both;
-	        animation: heartbeat 17.5s ease-in-out infinite both;
+  -webkit-animation: heartbeat 19.8s ease-in-out infinite both;
+	        animation: heartbeat 19.8.5s ease-in-out infinite both;
 }
