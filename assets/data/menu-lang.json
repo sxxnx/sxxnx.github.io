@@ -1,14 +1,27 @@
 [
   {
-  "id": 0,
-  "en": "JS dev - Front end - Data Viz Artist",
-  "fr": "JS dev - Front end - Artiste Data Viz",
-  "jp": "JS dev・フロントエンド・データ可視化アーティスト"
+    "id": 0,
+    "en": "JS dev - Front end - Data Viz Artist",
+    "fr": "JS dev - Front end - Artiste Data Viz",
+    "jp": "JS dev・フロントエンド・データ可視化アーティスト"
   },
   {
-  "id": 1,
-  "fr": "Projets",
-  "en": "Projects",
-  "jp": "プロジェクト"
+    "id": 1,
+    "fr": "Education & Exp",
+    "en": "Education & XP",
+    "jp": "教育&経験"
+  },
+  {
+    "id": 2,
+    "fr": "Projets",
+    "en": "Projects",
+    "jp": "プロジェクト"
+
+  },
+  {
+    "id": 3,
+    "fr": "A propos",
+    "en": "About me",
+    "jp": "SKについて"
   }
 ]
