@@ -1,0 +1,469 @@
+[
+  {
+    "id": 0,
+		"lang": {
+			"en": {
+				"title": "English & Japanese Bachelor",
+				"placeName": "Grenoble University",
+				"dates": "2010-2013",
+				"categories": {
+					"japanese": ["Kanji", "Grammar", "History", "Language practise"],
+					"english": ["British and American history", "Grammar", "Language practise"],
+					"economy": [],
+					"accounting": [],
+					"law & internation law": [],
+					"computer science": ["Javascript", "Adobe Flash Player", "Microsoft Access", "CMS"]
+				}
+			},
+			"fr": {
+				"title": "Licence Anglais Japonais",
+				"placeName": "Université de Grenoble",
+				"dates": "2010-2013",
+				"categories": {
+					"japonais": ["Kanji", "Grammaire", "Histoire", "Pratique de la langue"],
+					"anglais": ["Histoire des US & UK", "Grammaire", "Pratique de la langue"],
+					"economie": [],
+					"comptabilité": [],
+					"droit & droit international": [],
+					"informatique": ["Javascript", "Adobe Flash Player", "Microsoft Access", "CMS"]
+				}
+			},
+			"jp": {
+				"title": "日本語英語学士",
+				"placeName": "グルノーブル大学",
+				"dates": "2010-2013",
+				"categories": {
+					"日本語": ["漢字", "文法", "歴史", "会話練習"],
+					"英語": ["US&UK歴史", "文法", "会話練習"],
+					"経済学": [],
+					"会計学": [],
+					"法学&国際法学": [],
+					"IT": ["Javascript", "Adobe Flash Player", "Microsoft Access", "CMS"]
+				}
+			}
+		}
+  },
+	{
+    "id": 1,
+		"lang": {
+			"en": {
+					"title": "Exchange Student",
+					"placeName": "Nagoya University of Foreign Studies",
+					"dates": "2012-2013",
+					"categories": {
+						"japanese": ["N3", "N2"],
+						"tourism & hospitality": [],
+						"economy": [],
+						"british law": [],
+						"sociology": []
+					}
+				},
+			"fr": {
+					"title": "Echange universitaire",
+					"placeName": "Nagoya University of Foreign Studies",
+					"dates": "2012-2013",
+					"categories": {
+						"japonais": ["N3", "N2"],
+						"tourisme & hospitalité": [],
+						"economie": [],
+						"droit anglais": [],
+						"sociologie": []
+					}
+				},
+			"jp": {
+					"title": "留学",
+					"placeName": "名古屋外国語大学",
+					"dates": "2012-2013",
+					"categories": {
+						"日本語": ["N3", "N2"],
+						"観光産業学": [],
+						"経済学": [],
+						"UK法学": [],
+						"社会学": []
+					}
+				}
+		}
+	},
+	{
+		"id": 2,
+		"lang": {
+				"en": {
+					"title": "Front End Dev Project Manager",
+					"placeName": "Shiga, Japan",
+					"dates": "2014-2016",
+					"categories": {
+						"project managing": ["team management", "deadline management", "invoicing"],
+						"front end": [
+							"HTML",
+							"CSS",
+							"SCSS",
+							"Sass",
+							"Gulp",
+							"jQuery",
+							"GitLab",
+							"Drupal(7)"
+						],
+						"Events & Talks": [
+							"CMS Summer Fes. Osaka",
+							"Start Up Week End Nagahama Shiga",
+							"Drupal Cafe",
+							"Code for Shiga"
+						]
+					}
+				},
+				"jp": {
+					"title": "フロントエンドエンジニア　ディレクター",
+					"placeName": "滋賀県",
+					"dates": "2014-2016",
+					"categories": {
+						"ディレクター": ["ティーム管理", "期限管理", "見積"],
+						"フロントエンド": [
+							"HTML",
+							"CSS",
+							"SCSS",
+							"Sass",
+							"Gulp",
+							"jQuery",
+							"GitLab",
+							"Drupal(7)"
+						],
+						"イベント": [
+							"CMS Summer Fes. Osaka",
+							"Start Up Week End Nagahama Shiga",
+							"Drupal Cafe",
+							"Code for Shiga"
+						]
+					}
+				},
+				"fr": {
+					"title": "Front end dev & Chef de projet",
+					"placeName": "Shiga, Japon",
+					"dates": "2014-2016",
+					"categories": {
+						"Management de projet": ["Gestion de team", "Gestion des délais", "Facturation"],
+						"Front end": [
+							"HTML",
+							"CSS",
+							"SCSS",
+							"Sass",
+							"Gulp",
+							"jQuery",
+							"GitLab",
+							"Drupal(7)"
+						],
+						"Evenements": [
+							"CMS Summer Fes. Osaka",
+							"Start Up Week End Nagahama Shiga",
+							"Drupal Cafe",
+							"Code for Shiga"
+						]
+					}
+				}
+			}
+	},
+	{
+		"id": 3,
+		"lang": {
+			"en": {
+				"title": "Computer Science Master",
+				"placeName": "Grenoble University",
+				"dates": "2016-2018",
+				"categories": {
+					"computer science": ["Algorithm", "HCI", "AI"],
+					"front end": [
+						"HTML",
+						"CSS",
+						"JavaScript"
+					],
+					"back end": [
+						"Java",
+						".NET",
+						"PHP"
+					],
+					"DB & Systems & Security": [
+						"SQL",
+						"bash",
+						"perl",
+						"python"
+					]
+				}
+			},
+			"jp": {
+				"title": "IT終止",
+				"placeName": "Grenoble University",
+				"dates": "2016-2018",
+				"categories": {
+					"IT": ["アルゴリズム", "ヒューマンコンピュータインタラクション", "AI"],
+					"フロントエンド": [
+						"HTML",
+						"CSS",
+						"JavaScript"
+					],
+					"バックエンド": [
+						"Java",
+						".NET",
+						"PHP"
+					],
+					"DB & システム科学 & セキュリティー": [
+						"SQL",
+						"bash",
+						"perl",
+						"python"
+					]
+				}
+			},
+			"fr": {
+				"title": "Master Informatique",
+				"placeName": "Université de Grenoble",
+				"dates": "2016-2018",
+				"categories": {
+					"Informatique général": ["Algorithmique", "IHM", "IA"],
+					"front end": [
+						"HTML",
+						"CSS",
+						"JavaScript"
+					],
+					"back end": [
+						"Java",
+						".NET",
+						"PHP"
+					],
+					"BDD & Système & Sécurité": [
+						"SQL",
+						"bash",
+						"perl",
+						"python"
+					]
+				}
+			}
+		}
+	},
+	{
+		"id": 4,
+		"lang": {
+			"en": {
+				"title": "Data Vizualisation Internship",
+				"placeName": "Grenoble",
+				"dates": "2018",
+				"categories": {
+					"subject": "Design and development of graphical solutions for HPC data analysis",
+					"skills": [
+						"html",
+						"css",
+						"sass",
+						"javascript",
+						"d3.js",
+						"Symfony",
+						"Angular"
+					]
+				}
+			},
+			"jp": {
+				"title": "データ可視化インターンシップ",
+				"placeName": "グルノーブル",
+				"dates": "2018",
+				"categories": {
+					"subject": "HPCのデータ解析のデータ可視化デザインとWebプログラミング",
+					"スキル": [
+						"html",
+						"css",
+						"sass",
+						"javascript",
+						"d3.js",
+						"Symfony",
+						"Angular"
+					]
+				}
+			},
+			"fr": {
+				"title": "Stage en Data Visualisation",
+				"placeName": "Grenoble",
+				"dates": "2018",
+				"categories": {
+					"sujet": "Exploration & développement de solutions graphiques pour super calculateurs",
+					"compétences": [
+						"html",
+						"css",
+						"sass",
+						"javascript",
+						"d3.js",
+						"Symfony",
+						"Angular"
+					]
+				}
+			}
+		}
+	},
+	{
+		"id": 5,
+		"lang": {
+			"en": {
+				"title": "Software Engineer",
+				"placeName": "Grenoble - Lyon",
+				"dates": "2018-2020",
+				"categories": {
+					"front end": [
+						"typescript",
+						"angular",
+						"JavaScript"
+					],
+					"back end": [
+						"java - Spring"
+					],
+					"db & other": [
+						"mongoDB",
+						"mongoshell",
+						"SQL",
+						"application UI/UX"
+					]
+				}
+			},
+			"jp": {
+				"title": "ソフトウェアエンジニア",
+				"placeName": "グルノーブル・リヨン",
+				"dates": "2018-2020",
+				"categories": {
+					"フロントエンド": [
+						"typescript",
+						"angular",
+						"JavaScript"
+					],
+					"バックエンド": [
+						"java - Spring"
+					],
+					"db & 他": [
+						"mongoDB",
+						"mongoshell",
+						"SQL",
+						"ウェブアップ UI/UX"
+					]
+				}
+			},
+			"fr": {
+				"title": "Ingénieure Software",
+				"placeName": "Grenoble - Lyon",
+				"dates": "2018-2020",
+				"categories": {
+					"front end": [
+						"typescript",
+						"angular",
+						"JavaScript"
+					],
+					"back end": [
+						"java - Spring"
+					],
+					"BDD & autres": [
+						"mongoDB",
+						"mongoshell",
+						"SQL",
+						"application UI/UX"
+					]
+				}
+			}
+		}
+	},
+	{
+		"id": 6,
+		"lang": {
+			"en": {
+				"title": "Certificates",
+				"placeName": "Online courses",
+				"dates": "2016-2019",
+				"categories": {
+					"Web dev": [
+						"Interactivity with Javascript",
+						"Angular & TS"
+					],
+					"data": [
+						"Introduction to Data Science in Python",
+						"What is Data Science",
+						"Tools for Data Science",
+						"Data Science Methodology",
+						"Python for Data Science, AI & Development",
+						"Databases and SQL for Data Science with Python",
+						"Data Analysis with Python",
+						"Data Visualization with Python",
+						"Managing Data Analysis",
+						"The Data Scientist's toolbox"
+					],
+					"skills sumnmary": [
+						"javascript",
+						"typescript",
+						"python",
+						"jupyter notebooks",
+						"SQL",
+						"Matplotlib",
+						"Numpy",
+						"Seaborn"
+					]
+				}
+			},
+			"jp": {
+				"title": "履修証明",
+				"placeName": "オンラインコース",
+				"dates": "2016-2019",
+				"categories": {
+					"Webプログラミング": [
+						"Javascript UI/UX",
+						"Angular & TS"
+					],
+					"データ": [
+						"Introduction to Data Science in Python",
+						"What is Data Science",
+						"Tools for Data Science",
+						"Data Science Methodology",
+						"Python for Data Science, AI & Development",
+						"Databases and SQL for Data Science with Python",
+						"Data Analysis with Python",
+						"Data Visualization with Python",
+						"Managing Data Analysis",
+						"The Data Scientist's toolbox"
+					],
+					"スキル": [
+						"javascript",
+						"typescript",
+						"python",
+						"jupyter notebooks",
+						"SQL",
+						"Matplotlib",
+						"Numpy",
+						"Seaborn"
+					]
+				}
+			},
+			"fr": {
+				"title": "Certifications",
+				"placeName": "Cours en ligne",
+				"dates": "2016-2019",
+				"categories": {
+					"Web dev": [
+						"Interactivity with Javascript",
+						"Angular & TS"
+					],
+					"data": [
+						"Introduction to Data Science in Python",
+						"What is Data Science",
+						"Tools for Data Science",
+						"Data Science Methodology",
+						"Python for Data Science, AI & Development",
+						"Databases and SQL for Data Science with Python",
+						"Data Analysis with Python",
+						"Data Visualization with Python",
+						"Managing Data Analysis",
+						"The Data Scientist's toolbox"
+					],
+					"compétences": [
+						"javascript",
+						"typescript",
+						"python",
+						"jupyter notebooks",
+						"SQL",
+						"Matplotlib",
+						"Numpy",
+						"Seaborn"
+					]
+				}
+			}
+		}
+	}
+]
