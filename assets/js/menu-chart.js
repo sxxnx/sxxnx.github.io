@@ -185,7 +185,7 @@ function drawChart(data){
                           .classed('node', true)
                           .attr('class', function(d, i) {
                           // index being the 3 categories of menu
-                            if(i == 99 || i == 33 || i == 67) {
+                            if(i == 99 || i == 34 || i == 68) {
                               return 'circle-menu';
                             }
                            else {
@@ -228,7 +228,7 @@ function drawChart(data){
         let id = circleID.split('-')[circleID.split('-').length - 1]
         d3.select('#menu-text-' + id).style('opacity', '1');
         d3.select(this).attr('r', 100);
-        d3.select(this).style('opacity', 0.2);
+        d3.select(this).style('opacity', 0.5);
       }
     })
     circle.on('mouseout', function() {
@@ -240,7 +240,7 @@ function drawChart(data){
         d3.select('#menu-text-' + id).style('opacity', '0');
         // Reset r
         d3.select(this).attr('r', 50);
-        d3.select(this).style('opacity', 0.5);
+        d3.select(this).style('opacity', 0.8);
       }
     })
   }
