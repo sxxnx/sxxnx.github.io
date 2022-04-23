@@ -245,6 +245,20 @@ function drawEduChart(data){
        }
      })
   }
+  // getDataLang
+  // returns data in selected language
+  // args
+  // d data set array of objs with index
+  // lang stng lang value
+  function getDataLang(d) {
+    switch (lang) {
+      case 'fr': return d.lang.fr
+      break;
+      case 'jp': return d.lang.jp
+      break;
+      default: return d.lang.en //default en
+    }
+  }
 
 
   // draw circles
@@ -259,13 +273,12 @@ function drawEduChart(data){
   // HOVER
   // Animations classes /!\ functions are not used here bc it would reset the chart el values and it is not the point
   // let circlesEdu = groupCirclesEduXP.selectAll('circles')
-  circleEduXP.on('mouseover', function() {
+  circleEduXP.on('mouseover', function(event, d) {
     // hide all texts & set opacity to circles & lines
     d3.selectAll('.edu-text-title').style('opacity', 0)
     d3.select(this).classed('circle-hover', true);
     groupCirclesEduXP.selectAll('circle').style('opacity', 0.2);
     d3.select(this).style('opacity', 1);
-    console.log(groupLinesEduXP.selectAll('path'))
     groupLinesEduXP.style('opacity', 0.2);
 
     // highlight hovered circle
@@ -302,8 +315,25 @@ function drawEduChart(data){
     }
     let offset = chartW/2 - eduXPChartMargin;
     // show div info
+    let idSelected = d.id
+
     d3.select('#eduXPInfo').classed('edu-info-visible', true);
-    d3.select('#eduXPInfo').style('height', chartH);
+    // document.getElementById('eduXPInfo').style.minHeight = chartH + 'px';
+    document.getElementById('eduXPPlace').textContent = getDataLang(eduData[idSelected]).placeName;
+    document.getElementById('eduXPTime').textContent = getDataLang(eduData[idSelected]).dates;
+    document.getElementById('eduXPInfoTitle').textContent = getDataLang(eduData[idSelected]).title;
+    let categories = getDataLang(eduData[idSelected]).categories;
+    for (const el in categories) {
+      document.getElementById('eduXPInfoText')
+              .insertAdjacentHTML(
+                'afterbegin',
+                '<h4 class="title-info-edu">'+ `${el}`+'</h4><p class="text-edu-info">'+`${categories[el]}`+'</p>'
+              );
+    }
+
+
+
+
     d3.select('#eduXPChart').style('width', chartW/2 - eduXPChartMargin);
     d3.select('#eduXPSVG').style('width', chartW/2 - eduXPChartMargin);
     // slide the chart
@@ -360,7 +390,6 @@ function drawEduChart(data){
     let id = circleID.split('-')[circleID.split('-').length - 1]
     d3.select('#eduTitle-' + id).style('fill', colorsEdu.lightGray);
 
-    // console.log(d3.select(this).node().getAttribute('class'))
     if(d3.select(this).node().getAttribute('class') == 'circle-x-moved') {
       let prevCX = parseInt(d3.select(this).node().getAttribute('cx')) - minCoord
       d3.select(this).attr('cx', prevCX)
@@ -386,5 +415,15 @@ function drawEduChart(data){
     //reset paths
     groupLinesEduXP.selectAll('path').remove();
     drawLines(groupLinesEduXP, eduData, groupCirclesEduXP, '#circleEdu-');
+
+    // reset div info
+    // let idSelected = d.id
+
+    d3.select('#eduXPInfo').classed('edu-info-visible', false);
+    // document.getElementById('eduXPInfo').style.minHeight = chartH + 'px';
+    document.getElementById('eduXPPlace').innerHTML = ''
+    document.getElementById('eduXPTime').innerHTML = ''
+    document.getElementById('eduXPInfoTitle').innerHTML = ''
+    document.getElementById('eduXPInfoText').innerHTML = ''
   });
 }

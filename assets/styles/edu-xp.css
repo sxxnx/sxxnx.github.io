@@ -1,15 +1,30 @@
+/* Reset default margins  */
+.edu-xp-info p {
+  margin: 0;
+}
 .education-xp {
-  padding: 20px;
+  padding: 30px 20px;
 }
 .edu-xp-chart-info {
   margin: 0 auto;
   width: 90%;
 }
 .edu-xp-info {
+  background-color: #FFF;
+  display: none;
+  padding: 30px 30px 40px 30px;
+}
+.edu-xp-info.edu-info-visible {
+  border-radius: 10px;
   display: inline-block;
+  height: 100%;
+  opacity: 0.94;
+  vertical-align: top;
+  width: 40%;
 }
 .edu-xp-chart {
   display: inline-block;
+  margin-right: 10px;
 }
 .edu-text-title {
   font-family: 'Raleway', sans-serif;
@@ -17,4 +32,45 @@
   text-transform: uppercase;
   transition: opacity 0.9s;
   -webkit-transition: opacity 0.9s;
+}
+.circle-hover-lines {
+  opacity: 0.2;
+}
+.edu-header {
+  margin-bottom: 40px;
+  width: 100%;
+}
+.edu-xp-place {
+  color: #A6A6A6;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  text-align: right;
+}
+.edu-xp-time {
+  display: block;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 20px;
+  margin-bottom: 40px;
+  text-align: right;
+}
+.edu-xp-title {
+  color: #8971A2;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.title-info-edu {
+  color: #8971A2;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 17px;
+  margin: 10px auto;
+  text-transform: capitalize;
+}
+p.text-edu-info {
+  color: #737373;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  margin-bottom: 20px; /* apply margin that has been resetted */
+  text-transform: capitalize;
 }
