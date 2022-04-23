@@ -316,6 +316,9 @@ function drawEduChart(data){
                          if(slidedX < minCoord) {
                            return minCoord
                          }
+                         if((slidedX + circleR*2) > (chartW/2 - eduXPChartMargin)) {
+                           return slidedX - circleR;
+                         }
                          return slidedX + circleR;
                        }
                        return parseInt(d3.select(this).node().getAttribute('cx'));
