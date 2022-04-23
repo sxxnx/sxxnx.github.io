@@ -70,18 +70,16 @@ function drawEduChart(data){
     for(let nodeIndex=0; nodeIndex<points; nodeIndex++) {
       // get random number between min (margin) & max (interval + margin)
       let point = Math.floor(Math.random() * ((interval + m) - m + 1) + m);
-      //prevent override (margin 15)
-      if(previousPoint + 15 > point) {
-        point = previousPoint + m
+      // prevent points override with a 15 margin mini
+      if(previousPoint + circleR > point ) {
+        point = previousPoint + m;
       }
-      previousPoint = point;
-      // avoid overflow
-      if(point < m + circleR) {
-        point = point + circleR;
+      // prevent override out of edge
+      if(point + circleR > s) {
+        point = s - circleR*nodeIndex
       }
-      else if (point > (s + circleR)) {
-        point = point -(m + circleR);
-
+      if(point >= s - circleR) {
+        point = point - circleR
       }
       // fix first point to same coords
       if(nodeIndex == 0) {
@@ -89,7 +87,8 @@ function drawEduChart(data){
       }
       if(dIndex == numPointsOfPart) {
         dIndex = 1; // reset col or row
-        m = m + interval;
+        // m = m + interval;
+        interval = interval + interval
         tmpArr.push(point)
         tmpArr.sort(function(a, b){return a-b}); // sort the row / col
         tmpArr.map(d => coords.push(d));
@@ -102,6 +101,7 @@ function drawEduChart(data){
         dIndex = dIndex + 1;
         tmpArr.push(point)
       }
+      previousPoint = point;
     }
     return coords;
   }
@@ -141,13 +141,13 @@ function drawEduChart(data){
                                          // fix last point coords to be the same everytime
                                          return (chartW / 2) - circleR
                                        }
-                                       // avoid overflow
-                                       else if(nodeCoords[i].x > (chartW - eduXPChartMargin - circleR)) {
-                                         return chartW - eduXPChartMargin - circleR;
-                                       }
-                                       else if(nodeCoords[i].x < (circleR + 5)) {
-                                         return circleR + 10; // min size
-                                       }
+                                       // // avoid overflow
+                                       // else if(nodeCoords[i].x > (chartW - eduXPChartMargin - circleR)) {
+                                       //   return chartW - eduXPChartMargin - circleR;
+                                       // }
+                                       // else if(nodeCoords[i].x < (circleR + 5)) {
+                                       //   return circleR + 10; // min size
+                                       // }
                                        else {
                                          // iterate through nodeCoords since d is configured for json data
                                          return nodeCoords[i].x;
@@ -158,13 +158,13 @@ function drawEduChart(data){
                                          // fix last point coords to be the same everytime
                                          return (chartH - (circleR + eduXPChartMargin))
                                        }
-                                       else if(nodeCoords[i].y < (circleR + 5)) {
-                                         return circleR + 10; // min size
-                                       }
+                                       // else if(nodeCoords[i].y < (circleR + 5)) {
+                                       //   return circleR + 10; // min size
+                                       // }
                                        // avoid overflow
-                                       else if(nodeCoords[i].y > (chartH - eduXPChartMargin - circleR)) {
-                                         return chartH - eduXPChartMargin - circleR;
-                                       }
+                                       // else if(nodeCoords[i].y > (chartH - eduXPChartMargin - circleR)) {
+                                       //   return chartH - eduXPChartMargin - circleR;
+                                       // }
                                        else {
                                          // iterate through nodeCoords since d is configured for json data
                                          return nodeCoords[i].y;
