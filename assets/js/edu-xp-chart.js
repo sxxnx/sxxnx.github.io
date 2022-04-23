@@ -73,7 +73,7 @@ function drawEduChart(data){
       let point = Math.floor(Math.random() * ((interval + m) - m + 1) + m);
       // prevent points override with a 15 margin mini
       if(previousPoint + circleR > point ) {
-        point = previousPoint + m;
+        point = previousPoint + circleR + m*2;
       }
       // prevent override out of edge
       if(point + circleR > s) {
@@ -205,6 +205,11 @@ function drawEduChart(data){
          // handle exception for first element
          return circleEduX- (textEduW / 4)
        }
+       // prevent overflow negative
+       if( (i < eduData.length - 1) && ((circleEduX - (textEduW / 2)) < minCoord)) {
+         // 5 being margin
+         return circleEduX - circleR + 5
+       }
        return circleEduX - (textEduW / 2)
      })
      .attr('y', function(d, i) {
@@ -244,24 +249,29 @@ function drawEduChart(data){
 
   // draw circles
   let circleEduXP = drawCircles(groupCirclesEduXP, eduData);
-
   // Add text
   let eduXPTitles = appendEduText(groupTextEduXP, eduData);
-
   // Place text
   placeEduText(groupTextEduXP)
-
   // Add lines
   drawLines(groupLinesEduXP, eduData, groupCirclesEduXP, '#circleEdu-');
+
   // HOVER
-  // Animations classes
+  // Animations classes /!\ functions are not used here bc it would reset the chart el values and it is not the point
   // let circlesEdu = groupCirclesEduXP.selectAll('circles')
   circleEduXP.on('mouseover', function() {
-    // hide all texts
+    // hide all texts & set opacity to circles & lines
     d3.selectAll('.edu-text-title').style('opacity', 0)
     d3.select(this).classed('circle-hover', true);
+    groupCirclesEduXP.selectAll('circle').style('opacity', 0.2);
+    d3.select(this).style('opacity', 1);
+    console.log(groupLinesEduXP.selectAll('path'))
+    groupLinesEduXP.style('opacity', 0.2);
+
+    // highlight hovered circle
     d3.select(this).attr('r', circleR * 1.8);
     d3.select(this).style('fill', colorsEdu.lightPurple);
+
     let circleID = d3.select(this).node().getAttribute('id');
     let id = circleID.split('-')[circleID.split('-').length - 1];
     d3.select('#eduTitle-' + id).style('fill', colorsEdu.purple);
@@ -275,7 +285,7 @@ function drawEduChart(data){
       d3.select(this).attr('cx', function() {
         return parseInt(d3.select(this).node().getAttribute('cx')) + minCoord
       })
-      // place text accordingly
+      //place text accordingly
       d3.select('#eduTitle-' + id).attr('x', function() {
          return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('x')) + (minCoord /2.8);
       })
@@ -336,29 +346,40 @@ function drawEduChart(data){
   circleEduXP.on('mouseout', function() {
     // show all texts
     d3.selectAll('.edu-text-title').style('opacity', 1)
+    groupCirclesEduXP.selectAll('circle').style('opacity', 1);
+    groupLinesEduXP.style('opacity', 1);
+
+    // remove hovered class and reset fill color
     d3.select(this).classed('circle-hover', false);
     d3.select(this).style('fill', colorsEdu.purple);
+
     let circleID = d3.select(this).node().getAttribute('id');
     let id = circleID.split('-')[circleID.split('-').length - 1]
     d3.select('#eduTitle-' + id).style('fill', colorsEdu.lightGray);
-    console.log(d3.select(this).node().getAttribute('class'))
+
+    // console.log(d3.select(this).node().getAttribute('class'))
     if(d3.select(this).node().getAttribute('class') == 'circle-x-moved') {
       let prevCX = parseInt(d3.select(this).node().getAttribute('cx')) - minCoord
       d3.select(this).attr('cx', prevCX)
       d3.select(this).classed('circle-x-moved', false);
-      d3.select('#eduTitle-' + id).attr('x', function() {
-         return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('x')) - (minCoord /2.8);
-      })
+      // d3.select('#eduTitle-' + id).attr('x', function() {
+      //    return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('x')) - (minCoord /2.8);
+      // })
     }
     if(d3.select(this).node().getAttribute('class') == 'circle-y-moved') {
       let prevCY = parseInt(d3.select(this).node().getAttribute('cy')) + minCoord
       d3.select(this).attr('cy', prevCY)
       d3.select(this).classed('circle-y-moved', false);
-      d3.select('#eduTitle-' + id).attr('y', function() {
-         return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('y')) + minCoord;
-      })
+      // d3.select('#eduTitle-' + id).attr('y', function() {
+      //    return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('y')) + minCoord;
+      // })
     }
     d3.select(this).attr('r', circleR);
+    // reset text
+    groupTextEduXP.selectAll('text').remove();
+    let eduXPTitles = appendEduText(groupTextEduXP, eduData);
+    // Place text
+    placeEduText(groupTextEduXP)
     //reset paths
     groupLinesEduXP.selectAll('path').remove();
     drawLines(groupLinesEduXP, eduData, groupCirclesEduXP, '#circleEdu-');
