@@ -37,12 +37,7 @@ function drawChart(data){
   // const rDisplay = simScrubber(100); // TODO DISPLAY NODES AROUND GUIDECIRCLE
                 // .attr('overflow', 'hidden')
   const nodes = nodeData.map(d => Object.create(d));
-                 // keyframe = keyframe_radial;
-  //              .attr('id', 'menuGroup')
-  //              .attr('width', chartParam.width)
-  //              .attr('height', chartParam.height)
-  //              // .attr('overflow', 'hidden')
-  //              .classed('g-menu', true)
+
   // VARS
   const colors = {
     lightPurple: '#CDB2E8',
@@ -182,7 +177,6 @@ function drawChart(data){
                           .append('circle')
                           .style('fill', colors.lightPurple)
                           .style('opacity', 0.5)
-                          .classed('node', true)
                           .attr('class', function(d, i) {
                           // index being the 3 categories of menu
                             if(i == 99 || i == 34 || i == 68) {

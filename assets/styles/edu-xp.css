@@ -11,3 +11,10 @@
 .edu-xp-chart {
   display: inline-block;
 }
+.edu-text-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: opacity 0.9s;
+  -webkit-transition: opacity 0.9s;
+}
