@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function(){
   })
 });
 
-// TODO screamer random circle click
 // Draw Chart
 function drawEduChart(data){
   // CONST
@@ -31,9 +30,6 @@ function drawEduChart(data){
   const numberOfElements = eduData.length;
   // minimum Coord for circle placement
   const minCoord = (eduXPChartMargin*2);
-
-  // Don't display the info block by default
-  eduInfoBlock.style('display', 'none');
 
   // set default size of chart
   svgEdu.attr('width', eduChartdefaultW)
@@ -128,112 +124,138 @@ function drawEduChart(data){
     return coords;
   }
 
+  // drawCircles
+  // draw circles of the chart
+  // g : g svg element group
+  // data : dataset
+  function drawCircles(g, data) {
+    return (
+      g.selectAll('circle')
+       .data(data).enter()
+       .append('circle')
+       .style('fill', colorsEdu.purple)
+       .classed('circle-edu', true)
+       .attr('class', function(d, i) {
+         return 'circle-edu-' + i;
+       })
+       .attr('id', function(d, i) {
+         return 'circleEdu-' +i;
+       })
+       .attr('cx', function(d, i) {
+         if(i + 1 == data.length) {
+           // fix last point coords to be the same everytime
+           return (chartW / 2) - circleR;
+         }
+         else {
+           // iterate through nodeCoords since d is configured for json data
+           return nodeCoords[i].x;
+         }
+       })
+       .attr('cy', function(d, i) {
+         if(i + 1 == data.length) {
+           // fix last point coords to be the same everytime
+           return (chartH - (circleR + eduXPChartMargin))
+         }
+         else {
+           // iterate through nodeCoords since d is configured for json data
+           return nodeCoords[i].y;
+         }
+       })
+       .attr('r', circleR)
+    );
+  }
+
+  // appendEduText()
+  // aoppend text
+  // g : g svg element group
+  // data : dataset
+  function appendEduText(g, data) {
+    return(
+      g.selectAll('text')
+       .data(data)
+       .enter()
+       .append('text')
+       .text(function(d) {
+         switch (lang) {
+           case 'fr': return d.lang.fr.title
+           break;
+           case 'jp': return d.lang.jp.title
+           break;
+           default: return d.lang.en.title //default en
+         }
+       })
+       .classed('edu-text-title', true)
+       .attr('id', d => {
+         return 'eduTitle-'+ d.id
+       })
+       .style('fill', colorsEdu.lightGray)
+    )
+  }
+
+  // placeEduText()
+  // place text depending on circles
+  // g : g svg element group
+  // data : dataset
+  function placeEduText(g) {
+    g.selectAll('text')
+     .attr('x', function(d, i) {
+       let circleEduX = groupCirclesEduXP.select('#circleEdu-' +i).node().getAttribute('cx');
+       let textEduW = d3.select(this).node().getBoundingClientRect().width;
+       if(i == 0) {
+         // handle exception for first element
+         return circleEduX- (textEduW / 4)
+       }
+       return circleEduX - (textEduW / 2)
+     })
+     .attr('y', function(d, i) {
+       let circleEduY = groupCirclesEduXP.select('#circleEdu-' +i).node().getAttribute('cy');
+       return circleEduY
+     })
+  }
+
+
+  // drawLines
+  // draw lines of the chart
+  // g : g svg element group
+  // data : dataset
+  // groupC : g svg group of circles
+  // attrCircle : strg ID of the circles ('.' or '#' needed)
+  function drawLines(g, data, groupC, attrCircle) {
+    g.selectAll('path')
+     .data(data)
+     .enter()
+     .append('path')
+     .attr('id', function(d, i) {
+       return 'lineFrom-' + i + 'To' + (i + 1);
+     })
+     .classed('edu-line', true)
+     .style('stroke', colorsEdu.lightGray)
+     .attr('d', function(d, i) {
+       if(i+1 < data.length) {
+         let x1 = groupC.select(attrCircle +i).node().getAttribute('cx');
+         let y1 = groupC.select(attrCircle +i).node().getAttribute('cy');
+         let x2 = groupC.select(attrCircle + (i+1)).node().getAttribute('cx');
+         let y2 = groupC.select(attrCircle + (i+1)).node().getAttribute('cy');
+         return 'M' + x1 +' ' + y1 + ' L' + x2 + ' ' + y2;
+       }
+     })
+  }
+
 
   // draw circles
-  let circleEduXP = groupCirclesEduXP.selectAll('circle')
-                                     .data(eduData).enter()
-                                     .append('circle')
-                                     .style('fill', colorsEdu.purple)
-                                     .classed('circle-edu', true)
-                                     .attr('class', function(d, i) {
-                                       return 'circle-edu-' + i;
-                                     })
-                                     .attr('id', function(d, i) {
-                                       return 'circleEdu-' +i;
-                                     })
-                                     .attr('cx', function(d, i) {
-                                       if(i + 1 == eduData.length) {
-                                         // fix last point coords to be the same everytime
-                                         return (chartW / 2) - circleR
-                                       }
-                                       // // avoid overflow
-                                       // else if(nodeCoords[i].x > (chartW - eduXPChartMargin - circleR)) {
-                                       //   return chartW - eduXPChartMargin - circleR;
-                                       // }
-                                       // else if(nodeCoords[i].x < (circleR + 5)) {
-                                       //   return circleR + 10; // min size
-                                       // }
-                                       else {
-                                         // iterate through nodeCoords since d is configured for json data
-                                         return nodeCoords[i].x;
-                                       }
-                                     })
-                                     .attr('cy', function(d, i) {
-                                       if(i + 1 == eduData.length) {
-                                         // fix last point coords to be the same everytime
-                                         return (chartH - (circleR + eduXPChartMargin))
-                                       }
-                                       // else if(nodeCoords[i].y < (circleR + 5)) {
-                                       //   return circleR + 10; // min size
-                                       // }
-                                       // avoid overflow
-                                       // else if(nodeCoords[i].y > (chartH - eduXPChartMargin - circleR)) {
-                                       //   return chartH - eduXPChartMargin - circleR;
-                                       // }
-                                       else {
-                                         // iterate through nodeCoords since d is configured for json data
-                                         return nodeCoords[i].y;
-                                       }
-                                     })
-                                    .attr('r', circleR);
+  let circleEduXP = drawCircles(groupCirclesEduXP, eduData);
+
   // Add text
-  let eduXPTitles = groupTextEduXP.selectAll('text')
-                                  .data(eduData)
-                                  .enter()
-                                  .append('text')
-                                  .text(function(d) {
-                                    switch (lang) {
-                                      case 'fr':
-                                        return d.lang.fr.title
-                                        break;
-                                      case 'jp':
-                                        return d.lang.jp.title
-                                        break;
-                                      default:
-                                        return d.lang.en.title //default en
-                                    }
-                                  })
-                                  .classed('edu-text-title', true)
-                                  .attr('id', d => {
-                                    return 'eduTitle-'+ d.id
-                                  })
-                                  .style('fill', colorsEdu.lightGray);
+  let eduXPTitles = appendEduText(groupTextEduXP, eduData);
+
   // Place text
-  groupTextEduXP.selectAll('text')
-                .attr('x', function(d, i) {
-                  let circleEduX = groupCirclesEduXP.select('#circleEdu-' +i).node().getAttribute('cx');
-                  let textEduW = d3.select(this).node().getBoundingClientRect().width;
-                  if(i == 0) {
-                    // handle exception for first element
-                    return circleEduX- (textEduW / 4)
-                  }
-                  return circleEduX - (textEduW / 2)
-                })
-                .attr('y', function(d, i) {
-                  let circleEduY = groupCirclesEduXP.select('#circleEdu-' +i).node().getAttribute('cy');
-                  return circleEduY
-                })
+  placeEduText(groupTextEduXP)
+
   // Add lines
-  let eduLines = groupLinesEduXP.selectAll('path')
-                 .data(eduData)
-                 .enter()
-                 .append('path')
-                 .attr('id', function(d, i) {
-                   return 'lineFrom-' + i + 'To' + (i + 1);
-                 })
-                 .classed('edu-line', true)
-                 .style('stroke', colorsEdu.lightGray)
-                 .attr('d', function(d, i) {
-                   if(i+1 < eduData.length) {
-                     let x1 = groupCirclesEduXP.select('#circleEdu-' +i).node().getAttribute('cx');
-                     let y1 = groupCirclesEduXP.select('#circleEdu-' +i).node().getAttribute('cy');
-                     let x2 = groupCirclesEduXP.select('#circleEdu-' + (i+1)).node().getAttribute('cx');
-                     let y2 = groupCirclesEduXP.select('#circleEdu-' + (i+1)).node().getAttribute('cy');
-                     return 'M' + x1 +' ' + y1 + ' L' + x2 + ' ' + y2;
-                   }
-                 })
+  drawLines(groupLinesEduXP, eduData, groupCirclesEduXP, '#circleEdu-');
   // HOVER
   // Animations classes
+  // let circlesEdu = groupCirclesEduXP.selectAll('circles')
   circleEduXP.on('mouseover', function() {
     // hide all texts
     d3.selectAll('.edu-text-title').style('opacity', 0)
@@ -268,7 +290,48 @@ function drawEduChart(data){
          return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('y')) - minCoord;
       })
     }
-  })
+    let offset = chartW/2 - eduXPChartMargin;
+    // show div info
+    d3.select('#eduXPInfo').classed('edu-info-visible', true);
+    d3.select('#eduXPInfo').style('height', chartH);
+    d3.select('#eduXPChart').style('width', chartW/2 - eduXPChartMargin);
+    d3.select('#eduXPSVG').style('width', chartW/2 - eduXPChartMargin);
+    // slide the chart
+    groupCirclesEduXP.selectAll('circle')
+                     .attr('cx', function(d, i) {
+                       if((parseInt(d3.select(this).node().getAttribute('cx'))+ circleR * 1.8) > offset) {
+                         d3.select(this).classed('circle-x-slided', true);
+                         let slidedX = (parseInt(d3.select(this).node().getAttribute('cx'))) - offset;
+                         // prevent overflow right (negative number or overflow in margin of chart)
+                         if(slidedX < minCoord) {
+                           return minCoord
+                         }
+                         return slidedX + circleR;
+                       }
+                       return parseInt(d3.select(this).node().getAttribute('cx'));
+                     });
+    // slide text
+    groupTextEduXP.selectAll('text')
+                  .attr('x', function(d, i) {
+                    let circleClass = d3.select('#circleEdu-' + i).node().getAttribute('class');
+                    let circleEduX = groupCirclesEduXP.select('#circleEdu-' +i).node().getAttribute('cx');
+                    let textEduW = d3.select(this).node().getBoundingClientRect().width;
+                    circleClass = circleClass.split(' ')
+                    // only slided circles
+                    if(circleClass[1] == 'circle-x-slided') {
+                      d3.select(this).classed('text-x-slided', true);
+                      let slidedX = circleEduX - (textEduW / 2)
+                      if(slidedX < 0) {
+                        slidedX = eduXPChartMargin;
+                      }
+                      return slidedX;
+                    }
+                    return parseInt(d3.select(this).node().getAttribute('x'));
+                  })
+    //reset paths
+    groupLinesEduXP.selectAll('path').remove();
+    drawLines(groupLinesEduXP, eduData, groupCirclesEduXP, '#circleEdu-');
+  });
   // reset all
   circleEduXP.on('mouseout', function() {
     // show all texts
@@ -278,6 +341,7 @@ function drawEduChart(data){
     let circleID = d3.select(this).node().getAttribute('id');
     let id = circleID.split('-')[circleID.split('-').length - 1]
     d3.select('#eduTitle-' + id).style('fill', colorsEdu.lightGray);
+    console.log(d3.select(this).node().getAttribute('class'))
     if(d3.select(this).node().getAttribute('class') == 'circle-x-moved') {
       let prevCX = parseInt(d3.select(this).node().getAttribute('cx')) - minCoord
       d3.select(this).attr('cx', prevCX)
@@ -295,5 +359,8 @@ function drawEduChart(data){
       })
     }
     d3.select(this).attr('r', circleR);
-  })
+    //reset paths
+    groupLinesEduXP.selectAll('path').remove();
+    drawLines(groupLinesEduXP, eduData, groupCirclesEduXP, '#circleEdu-');
+  });
 }
