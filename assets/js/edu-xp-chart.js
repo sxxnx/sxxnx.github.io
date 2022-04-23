@@ -25,9 +25,12 @@ function drawEduChart(data){
     lightPurple: '#CDB2E8',
     purple: '#8971A2',
     lightGray: '#D1CCD6',
+    gray: '#A6A6A6',
     white: '#FFF'
   }
   const numberOfElements = eduData.length;
+  // minimum Coord for circle placement
+  const minCoord = (eduXPChartMargin*2);
 
   // Don't display the info block by default
   eduInfoBlock.style('display', 'none');
@@ -43,6 +46,8 @@ function drawEduChart(data){
   // Var of the size
   let chartW = svgEdu.node().getBoundingClientRect().width;
   let chartH = svgEdu.node().getBoundingClientRect().height;
+
+  let maxCoord = chartH - eduXPChartMargin;
 
   // LANG VAR
   let lang = 'en'; // default is english TODO const
@@ -129,7 +134,7 @@ function drawEduChart(data){
                                      .data(eduData).enter()
                                      .append('circle')
                                      .style('fill', colorsEdu.purple)
-                                     .classed('node', true)
+                                     .classed('circle-edu', true)
                                      .attr('class', function(d, i) {
                                        return 'circle-edu-' + i;
                                      })
@@ -227,8 +232,68 @@ function drawEduChart(data){
                      return 'M' + x1 +' ' + y1 + ' L' + x2 + ' ' + y2;
                    }
                  })
-
-                                  // selectedTextMenu.attr('x', item[1].x - (item[1].textW / 2))
-                                  //                 .attr('y', item[1].y);
-                                  // svg.selectAll('#menu-text-0').node().getBoundingClientRect().width
+  // HOVER
+  // Animations classes
+  circleEduXP.on('mouseover', function() {
+    // hide all texts
+    d3.selectAll('.edu-text-title').style('opacity', 0)
+    d3.select(this).classed('circle-hover', true);
+    d3.select(this).attr('r', circleR * 1.8);
+    d3.select(this).style('fill', colorsEdu.lightPurple);
+    let circleID = d3.select(this).node().getAttribute('id');
+    let id = circleID.split('-')[circleID.split('-').length - 1];
+    d3.select('#eduTitle-' + id).style('fill', colorsEdu.purple);
+    d3.select('#eduTitle-' + id).style('opacity', 1);
+    // prevent overflow
+    // min coords point (eduXPChartMargin*2)+10
+    let coordX = parseInt(d3.select(this).node().getAttribute('cx'));
+    let coordY = parseInt(d3.select(this).node().getAttribute('cy'));
+    if(coordX - minCoord < minCoord) {
+      d3.select(this).attr('class', 'circle-x-moved')
+      d3.select(this).attr('cx', function() {
+        return parseInt(d3.select(this).node().getAttribute('cx')) + minCoord
+      })
+      // place text accordingly
+      d3.select('#eduTitle-' + id).attr('x', function() {
+         return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('x')) + (minCoord /2.8);
+      })
+    }
+    // same than previous with y coords
+    if(coordY + minCoord >= maxCoord) {
+      d3.select(this).attr('class', 'circle-y-moved')
+      d3.select(this).attr('cy', function() {
+        return coordY - minCoord
+      })
+      d3.select('#eduTitle-' + id).attr('y', function() {
+         return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('y')) - minCoord;
+      })
+    }
+  })
+  // reset all
+  circleEduXP.on('mouseout', function() {
+    // show all texts
+    d3.selectAll('.edu-text-title').style('opacity', 1)
+    d3.select(this).classed('circle-hover', false);
+    d3.select(this).style('fill', colorsEdu.purple);
+    let circleID = d3.select(this).node().getAttribute('id');
+    let id = circleID.split('-')[circleID.split('-').length - 1]
+    d3.select('#eduTitle-' + id).style('fill', colorsEdu.lightGray);
+    if(d3.select(this).node().getAttribute('class') == 'circle-x-moved') {
+      let prevCX = parseInt(d3.select(this).node().getAttribute('cx')) - minCoord
+      d3.select(this).attr('cx', prevCX)
+      d3.select(this).classed('circle-x-moved', false);
+      d3.select('#eduTitle-' + id).attr('x', function() {
+         return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('x')) - (minCoord /2.8);
+      })
+    }
+    if(d3.select(this).node().getAttribute('class') == 'circle-y-moved') {
+      let prevCY = parseInt(d3.select(this).node().getAttribute('cy')) + minCoord
+      d3.select(this).attr('cy', prevCY)
+      d3.select(this).classed('circle-y-moved', false);
+      d3.select('#eduTitle-' + id).attr('y', function() {
+         return parseInt(d3.select('#eduTitle-' + id).node().getAttribute('y')) + minCoord;
+      })
+    }
+    d3.select(this).attr('r', circleR);
+  })
 }
