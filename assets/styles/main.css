@@ -2,6 +2,35 @@ html {
   background-color: #323232;
 }
 
+h2 {
+  color: #D1CCD6;
+  float: right;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 45px;
+  font-weight: normal;
+  line-height: 5px;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+}
+h2::before {
+  background-color: #9563C6;
+  content: '';
+  display: block;
+  height: 100%;
+  margin: 0 -20px;  /* margin is negative only for before styling purpose */
+  width: 25px;
+}
+h2::after {
+  clear: both;
+}
+.close-icon {
+  text-align: right;
+}
+.close-icon .material-symbols-outlined {
+  color: #D1CCD6;
+  font-size: 65px;
+  font-weight: 100;
+}
 .title-name {
   font-family: 'Libre Baskerville', serif;
   font-size: 100px;
@@ -19,6 +48,7 @@ html {
 }
 
 .circle-menu {
+  cursor: pointer;
   fill: #9563C6 !important; /* override d3 js default style */
   opacity: 0.8 !important; /* override d3 js default style */
   transition: r 0.9s;

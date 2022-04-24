@@ -77,6 +77,7 @@ p.text-edu-info {
 }
 /* did not do class for circles because i think the code is cursed and i am affraid to touch it again */
 .group-circle-eduXP circle {
+  cursor: pointer;
   transition: opacity 0.5s, fill 0.5s, r 0.5s;
   -webkit-transition: opacity 0.5s, fill 0.5s, r 0.5s;
 }
