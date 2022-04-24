@@ -49,7 +49,8 @@ h5 {
   vertical-align: top;
   width: 60%;
 }
-.project-card {
+.project-card,
+.card-empty {
   background-color: #F8FAF9;
   border-radius: 10px;
   contain: content;
@@ -58,9 +59,17 @@ h5 {
   min-height: 250px;
   width: 45%;
 }
+.card-empty {
+  contain: content;
+  background-color: transparent;
+}
+.project-card-pj {
+  /* contain: content; */
+}
 .more-projects {
   background-color: transparent;
-  vertical-align: middle;
+  box-sizing: border-box;
+  vertical-align: super;
 }
 .more-link,
 .previous-link {
@@ -78,7 +87,7 @@ h5 {
   content: '>';
   margin-left: 10px;
 }
-.previous-link {
+.previous-link::before {
   content: '<';
   margin-right: 10px;
 }
