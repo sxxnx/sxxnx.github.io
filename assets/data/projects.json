@@ -1,0 +1,185 @@
+[
+  {
+    "intro" : {
+      "git" : "https://github.com/sxxnx",
+      "demo": "https://sxxnx.github.io",
+      "tech": {
+        "0": {
+          "name": "",
+          "percentage": ""
+        },
+        "1": {
+          "name": "",
+          "percentage": ""
+        },
+        "2": {
+          "name": "",
+          "percentage": ""
+        },
+        "3": {
+          "name": "",
+          "percentage": ""
+        }
+      },
+      "lang": {
+        "en":{
+          "title": "Projects",
+          "description": "Here is a non exhaustive list of all the projects I have done so far. Some were lost, but I will try to update the list regularly.",
+          "otherlink": "More links"
+        },
+        "fr":{},
+        "jp":{}
+      }
+    },
+    "0" : {
+      "git" : "https://github.com/sxxnx",
+      "demo": "https://sxxnx.github.io",
+      "tech": {
+        "0": {
+          "name": "",
+          "percentage": ""
+        },
+        "1": {
+          "name": "",
+          "percentage": ""
+        },
+        "2": {
+          "name": "",
+          "percentage": ""
+        },
+        "3": {
+          "name": "",
+          "percentage": ""
+        }
+      },
+      "lang": {
+        "en":{
+          "title": "Datasana",
+          "description": "This project is on hold. I have no time to finish it. Anyway, the point was to display each Asana and benefits on an interactive chart."
+        },
+        "fr":{},
+        "jp":{}
+      }
+    },
+    "1" : {
+      "git" : "https://github.com/sxxnx",
+      "demo": "https://sxxnx.github.io",
+      "tech": {
+        "0": {
+          "name": "",
+          "percentage": ""
+        },
+        "1": {
+          "name": "",
+          "percentage": ""
+        },
+        "2": {
+          "name": "",
+          "percentage": ""
+        },
+        "3": {
+          "name": "",
+          "percentage": ""
+        }
+      },
+      "lang": {
+        "en":{
+          "title": "Interactive Timeline",
+          "description": "Something I did quickly during my free time. D3ITL is an nteractive timeline built with D3 with pure CSS animations."
+        },
+        "fr":{},
+        "jp":{}
+      }
+    },
+    "2" : {
+      "git" : "https://github.com/sxxnx",
+      "demo": "https://sxxnx.github.io",
+      "tech": {
+        "0": {
+          "name": "",
+          "percentage": ""
+        },
+        "1": {
+          "name": "",
+          "percentage": ""
+        },
+        "2": {
+          "name": "",
+          "percentage": ""
+        },
+        "3": {
+          "name": "",
+          "percentage": ""
+        }
+      },
+      "lang": {
+        "en":{
+          "title": "DVS Webchart",
+          "description": "A project I did for DVS. The point of the chart is to visualize where the members come from and how they evaluate themselves in both categories : Data, Visualization and Society."
+        },
+        "fr":{},
+        "jp":{}
+      }
+    },
+    "3" : {
+      "git" : "https://github.com/sxxnx",
+      "demo": "https://sxxnx.github.io",
+      "tech": {
+        "0": {
+          "name": "",
+          "percentage": ""
+        },
+        "1": {
+          "name": "",
+          "percentage": ""
+        },
+        "2": {
+          "name": "",
+          "percentage": ""
+        },
+        "3": {
+          "name": "",
+          "percentage": ""
+        }
+      },
+      "lang": {
+        "en":{
+          "title": "Fraud Viz",
+          "description": "A project I did for a company. It was made too quicly visualize the level of fraud risk of each transaction in a web-shop. The project is not responsive as it was not useful for the final purpose of the chart."
+        },
+        "fr":{},
+        "jp":{}
+      }
+    },
+    "4" : {
+      "git" : "https://github.com/sxxnx",
+      "demo": "https://sxxnx.github.io",
+      "tech": {
+        "0": {
+          "name": "",
+          "percentage": ""
+        },
+        "1": {
+          "name": "",
+          "percentage": ""
+        },
+        "2": {
+          "name": "",
+          "percentage": ""
+        },
+        "3": {
+          "name": "",
+          "percentage": ""
+        }
+      },
+      "lang": {
+        "en":{
+          "title": "Portfolio v2",
+          "description": "This is simply my old portfolio."
+        },
+        "fr":{},
+        "jp":{}
+      }
+    }
+	}
+]
