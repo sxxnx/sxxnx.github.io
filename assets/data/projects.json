@@ -78,12 +78,12 @@
           "percentage": 17.6
         },
         "2": {
-          "name": "",
-          "percentage": ""
-        },
-        "3": {
           "name": "HTML",
           "percentage": 7.9
+        },
+        "3": {
+          "name": "",
+          "percentage": ""
         }
       },
       "lang": {
