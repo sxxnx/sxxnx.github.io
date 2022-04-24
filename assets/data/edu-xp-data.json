@@ -11,7 +11,7 @@
 					"english": ["British and American history", "Grammar", "Language practise"],
 					"economy": [],
 					"accounting": [],
-					"law & internation law": [],
+					"law & international law": [],
 					"computer science": ["Javascript", "Adobe Flash Player", "Microsoft Access", "CMS"]
 				}
 			},
@@ -88,7 +88,7 @@
 		"id": 2,
 		"lang": {
 				"en": {
-					"title": "Front End Dev Project Manager",
+					"title": "Front End Dev & Project Manager",
 					"placeName": "Shiga, Japan",
 					"dates": "2014-2016",
 					"categories": {
