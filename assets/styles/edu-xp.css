@@ -13,6 +13,8 @@
   background-color: #FFF;
   display: none;
   padding: 30px 30px 40px 30px;
+  -webkit-animation: fade-in-right 0.5s ease-in-out both;
+	        animation: fade-in-right 0.5s ease-in-out both;
 }
 .edu-xp-info.edu-info-visible {
   border-radius: 10px;
@@ -29,8 +31,8 @@
   font-family: 'Raleway', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
-  transition: opacity 0.9s;
-  -webkit-transition: opacity 0.9s;
+  transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
 }
 .circle-hover-lines {
   opacity: 0.2;
@@ -72,4 +74,59 @@ p.text-edu-info {
   font-size: 15px;
   margin-bottom: 20px; /* apply margin that has been resetted */
   text-transform: capitalize;
+}
+/* did not do class for circles because i think the code is cursed and i am affraid to touch it again */
+.group-circle-eduXP circle {
+  transition: opacity 0.5s, fill 0.5s, r 0.5s;
+  -webkit-transition: opacity 0.5s, fill 0.5s, r 0.5s;
+}
+
+/* ANIMATIONS */
+@-webkit-keyframes fade-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
 }
