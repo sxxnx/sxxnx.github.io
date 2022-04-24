@@ -25,7 +25,8 @@
         "en":{
           "title": "Projects",
           "description": "Here is a non exhaustive list of all the projects I have done so far. Some were lost, but I will try to update the list regularly.",
-          "otherlink": "More links"
+          "otherlink": "More links",
+          "techUsed": "Tech. used"
         },
         "fr":{},
         "jp":{}
