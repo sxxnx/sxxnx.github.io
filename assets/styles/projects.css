@@ -54,8 +54,8 @@ h5 {
   border-radius: 10px;
   contain: content;
   display: inline-block;
-  height: 200px;
-  width: 40%;
+  min-height: 250px;
+  width: 45%;
 }
 .more-projects {
   background-color: transparent;
@@ -86,4 +86,21 @@ h5 {
 }
 .project-card-0 {
   margin-right: 10px;
+}
+.project-image {
+  margin: 10px auto;
+}
+.project-image img {
+  height: 190px;
+  object-fit: cover;
+  width: 200px;
+}
+.project-card-title {
+  color: #8971A2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 15px;
+  margin: 0 10px;
+  text-transform: uppercase;
 }

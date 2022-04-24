@@ -47,7 +47,7 @@ function drawPJChart(data){
   }
 
   // Base text init
-  console.log(pjData.intro)
+  console.log(pjData)
   document.getElementById('projectTitle').textContent = getDataLang(pjData.intro).title;
   document.getElementById('projectDesc').textContent = getDataLang(pjData.intro).description;
   document.getElementById('git').href = pjData.intro.git;
@@ -60,8 +60,28 @@ function drawPJChart(data){
           );
 
   // Insert projects data
-  let displayedCards = document.getElementsByClassName('project-card');
-  console.log(displayedCards);
+  let cardsNumb = (document.getElementsByClassName('project-card').length) - 1; // -1 because one card is for link
+  Object.entries(pjData).map(function(item, i) {
+    console.log(item)
+    if(i <= cardsNumb) {
+      let dataOfItem = getDataLang(item[1]);
+      if(document.getElementById('projectCard-' + i) !== null) {
+        document.getElementById('projectImage-'+ i)
+                .insertAdjacentHTML(
+                  'afterbegin',
+                  '<img alt="'+ dataOfItem.title + ' project image" src= "assets/imgs/'+ item[1].img +'.png"/>'
+                );
+        document.getElementById('projectCardTitle-' + i).textContent = dataOfItem.title;
+        console.log(dataOfItem);
+        console.log(i)
+      }
 
+    }
+    // if(document.getElementById('projectCard-' + pj) !== null) {}
+        // let selectedTextMenu = svg.select('#menu-text-'+i);
+        // selectedTextMenu.attr('x', item[1].x - (item[1].textW / 2))
+        //                 .attr('y', item[1].y);
+      // document.getElementById('projectCardTitle-'+pj).textContent = getDataLang(pjData. + pj).title;
+  })
 
 }
