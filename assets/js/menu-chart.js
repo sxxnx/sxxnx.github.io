@@ -307,6 +307,15 @@ function drawChart(data){
   })
 
 
-  // Display text of menu
+  // Links
+  d3.select('#circle-menu-0').on('click', function(event, d) {
+    window.location.href = './education-experience.html';
+  });
+  d3.select('#circle-menu-1').on('click', function(event, d) {
+    window.location.href = './projects.html';
+  });
+  d3.select('#circle-menu-2').on('click', function(event, d) {
+    window.location.href = './about.html';
+  });
 
 }

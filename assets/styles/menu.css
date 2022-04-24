@@ -1,0 +1,187 @@
+html {
+  overflow: hidden;
+}
+.title-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 100px;
+}
+.subtitle {
+  font-family: 'Raleway', sans-serif;
+}
+
+.translation {
+  color: #A6A6A6;
+  display: none; /* TODO display and config */
+  font-family: 'Open Sans', sans-serif;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.circle-menu {
+  cursor: pointer;
+  fill: #9563C6 !important; /* override d3 js default style */
+  opacity: 0.8 !important; /* override d3 js default style */
+  transition: r 0.9s;
+  -webkit-transition: r 0.9s;
+}
+
+.menu-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  opacity: 0;
+  text-transform: uppercase;
+  transition: opacity 0.9s;
+  -webkit-transition: opacity 0.9s;
+}
+
+/* ANIMATIONS */
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes pulsate-bck {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-bck {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.94);
+            transform: scale(0.94);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+.circle-anim-1 {
+  -webkit-animation: pulsate-fwd 19.5s ease-in-out infinite both;
+	        animation: pulsate-fwd 19.5s ease-in-out infinite both;
+}
+.circle-anim-2 {
+  -webkit-animation: pulsate-bck 18.5s ease-in-out infinite both;
+	        animation: pulsate-bck 18.5s ease-in-out infinite both;
+}
+.circle-anim-3 {
+  -webkit-animation: heartbeat 18s ease-in-out infinite both;
+	        animation: heartbeat 18s ease-in-out infinite both;
+}
+.circle-anim-4 {
+  -webkit-animation: pulsate-fwd 19s ease-in-out infinite both;
+	        animation: pulsate-fwd 19s ease-in-out infinite both;
+}
+.circle-anim-5 {
+  -webkit-animation: pulsate-bck 20s ease-in-out infinite both;
+	        animation: pulsate-bck 20s ease-in-out infinite both;
+}
+.circle-anim-6 {
+  -webkit-animation: heartbeat 19.8s ease-in-out infinite both;
+	        animation: heartbeat 19.8.5s ease-in-out infinite both;
+}

@@ -16,7 +16,7 @@ function drawEduChart(data){
   const eduXPChartBlock = d3.select('#eduXPChart');
   const eduXPChartMargin = 30;
   const circleR = 60;
-  const eduChartdefaultW = eduParentBlock.node().getBoundingClientRect().width - eduXPChartMargin;
+  const eduChartdefaultW = document.getElementById('eduXPChart').offsetWidth;
   // // SVG init
   const svgEdu = eduXPChartBlock.append('svg').attr('id', 'eduXPSVG').classed('svg-edu-chart', true);
   // COLORS
@@ -32,7 +32,7 @@ function drawEduChart(data){
   const minCoord = (eduXPChartMargin*2);
 
   // set default size of chart
-  svgEdu.attr('width', eduChartdefaultW)
+  svgEdu.attr('width', eduChartdefaultW - eduXPChartMargin*2)
         .attr('height', Math.min(window.innerHeight));
 
   const groupLinesEduXP = svgEdu.append('g').classed('group-lines-eduXP', true).attr('id', 'groupLinesEduXP');
