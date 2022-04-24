@@ -1,0 +1,73 @@
+/* reset default */
+p,
+h3 {
+  margin: 0;
+}
+.about {
+  color: #323232
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+.about-img,
+.about-info {
+  display: inline-block;
+}
+.about-img {
+  margin-right: -40px; /* for styling purpose only */
+  max-width: 300px;
+  vertical-align: bottom;
+}
+.about-img img {
+  width: 100%;
+}
+.about-info {
+  max-width: 600px;
+  position: relative;
+  z-index: -999;
+}
+.about-text {
+  background-color: #FFF;
+  padding: 30px 30px 30px 40px;
+  text-align: left;
+}
+.about-intro {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.emphasized {
+  color: #9563C6;
+  font-weight: bolder;
+}
+.title-contact {
+  color: #9563C6;
+  font-family: 'Homemade Apple', cursive;
+  font-size: 34px;
+  margin-top: 40px;
+}
+.hire-me {
+  color: #8971A2;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  padding: 0 50px;
+}
+.contact-links {
+  background-color: rgb(149 99 198 / 51%);
+  color: #9563C6;
+  text-align: center;
+  margin-top: -40px; /* only for styling purpose */
+  padding: 30px;
+}
+.contact-links a {
+  opacity: 1;
+}
+.separator::after {
+  background-color: #8971A2;
+  content: '';
+  display: block;
+  height: 1px;
+  margin: 30px auto 30px auto;
+  width: 80%;
+}
