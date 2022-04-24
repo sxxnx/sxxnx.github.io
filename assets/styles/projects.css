@@ -1,0 +1,89 @@
+h3,
+h5 {
+  margin: 0; /* reset default */
+}
+.projects-infos {
+  display: inline-block;
+  padding: 0 20px;
+  width: 25%;
+}
+.project-title {
+  color: #CDB2E8;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.project-desc {
+  color: #FFF;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+}
+.project-links {
+  color: #8971A2;
+  text-align: right;
+}
+.project-links .material-symbols-outlined {
+  font-size: 35px;
+  vertical-align: middle;
+}
+.project-links .git {
+  font-size: 30px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.project-tech-used {
+  color: #D1CCD6;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+}
+.project-tech-used::after {
+  background-color: #CDB2E8;
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+}
+.projects-display {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 60%;
+}
+.project-card {
+  background-color: #F8FAF9;
+  border-radius: 10px;
+  contain: content;
+  display: inline-block;
+  height: 200px;
+  width: 40%;
+}
+.more-projects {
+  background-color: transparent;
+  vertical-align: middle;
+}
+.more-link,
+.previous-link {
+  color: #8971A2;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+}
+.more-link::after,
+.previous-link::before {
+  display: inline-block;
+  vertical-align: middle;
+}
+.more-link::after {
+  content: '>';
+  margin-left: 10px;
+}
+.previous-link {
+  content: '<';
+  margin-right: 10px;
+}
+.project-row-0 {
+  margin-bottom: 10px;
+}
+.project-card-0 {
+  margin-right: 10px;
+}

@@ -4,6 +4,8 @@
     <meta charset='utf-8'>
     <title>Seona K.</title>
     <!-- Fonts & Icons -->
+    <script src="https://kit.fontawesome.com/589cb0ac03.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Libre+Baskerville&family=Open+Sans:wght@300&family=Raleway:wght@100&family=Roboto+Condensed&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -21,7 +23,7 @@
     <!-- libs -->
     <!-- <script src="assets/lib/scroll.js"></script> -->
     <script src='assets/libs/d3.v7.min.js'></script>
-    <!-- <script type='text/javascript' src='assets/js/projects.js'></script> -->
+    <script type='text/javascript' src='assets/js/projects.js'></script>
     <!-- <script src="https://momentjs.com/downloads/moment.js"></script>
     <script type="text/javascript" src="mainScript.js"></script>
     <script type="text/javascript" src="cvScript.js"></script>
@@ -29,7 +31,7 @@
   </head>
   <body>
     <div class='main'>
-      <div id='educationXP' class='education-xp'>
+      <div id='projects' class='project'>
         <div id='closeIcon' class='close-icon'>
           <span class="material-symbols-outlined"><a href='./index.html'>close</a></span>
         </div>
@@ -38,7 +40,10 @@
           <div id='projectInfo' class='project-info'>
             <h3 id='projectTitle' class='project-title'></h3>
             <p id='projectDesc' class='project-desc'></p>
-            <div id='projectLinks' class='project-links'></div>
+            <div id='projectLinks' class='project-links'>
+              <a id='git' class='git' href=''><i class="fa-brands fa-github"></i></a>
+              <a id='demo' class='demo' href=''><span class="material-symbols-outlined">smart_display</span></a>
+            </div>
           </div>
           <div id='projectTech' class='project-tech'>
           <h4 id='projectTechUsed' class='project-tech-used'></h4>
@@ -47,8 +52,8 @@
         </div>
       </div>
       <div id='projectsDisplay' class='projects-display'>
-        <div id='projectsRow-0' class='project-row'>
-          <div id='projectCard-0' class='project-card'>
+        <div id='projectsRow-0' class='project-row project-row-0'>
+          <div id='projectCard-0' class='project-card project-card-0'>
             <div id='projectImage-0' class='project-image'>
             </div>
             <h5 id='projectCardTitle-0' class='project-card-title'></h5>
@@ -60,12 +65,12 @@
           </div>
         </div>
         <div id='projectsRow-1' class='project-row'>
-          <div id='projectCard-2' class='project-card'>
+          <div id='projectCard-2' class='project-card project-card-0'>
             <div id='projectImage-2' class='project-image'>
             </div>
             <h5 id='projectCardTitle-2' class='project-card-title'></h5>
           </div>
-          <div id='moreProjects' class='more-projects'></div>
+          <div id='moreProjects' class='project-card more-projects'></div>
         </div>
       </div>
     </div>
