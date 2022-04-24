@@ -39,20 +39,20 @@
       "img": "datasana",
       "tech": {
         "0": {
-          "name": "",
-          "percentage": ""
+          "name": "D3.js",
+          "percentage": 55
         },
         "1": {
-          "name": "",
-          "percentage": ""
+          "name": "CSS",
+          "percentage": 15.3
         },
         "2": {
-          "name": "",
-          "percentage": ""
+          "name": "HTML",
+          "percentage": 6.1
         },
         "3": {
-          "name": "",
-          "percentage": ""
+          "name": "Python",
+          "percentage": 23.6
         }
       },
       "lang": {
@@ -70,20 +70,20 @@
       "img": "d3ITL",
       "tech": {
         "0": {
-          "name": "",
-          "percentage": ""
+          "name": "D3.js",
+          "percentage": 74.5
         },
         "1": {
-          "name": "",
-          "percentage": ""
+          "name": "CSS",
+          "percentage": 17.6
         },
         "2": {
           "name": "",
           "percentage": ""
         },
         "3": {
-          "name": "",
-          "percentage": ""
+          "name": "HTML",
+          "percentage": 7.9
         }
       },
       "lang": {
@@ -101,16 +101,16 @@
       "img": "dvs",
       "tech": {
         "0": {
-          "name": "",
-          "percentage": ""
+          "name": "D3.js",
+          "percentage": 84.9
         },
         "1": {
-          "name": "",
-          "percentage": ""
+          "name": "CSS",
+          "percentage": 5.3
         },
         "2": {
-          "name": "",
-          "percentage": ""
+          "name": "HTML",
+          "percentage": 9.8
         },
         "3": {
           "name": "",
@@ -132,16 +132,16 @@
       "img": "",
       "tech": {
         "0": {
-          "name": "",
-          "percentage": ""
+          "name": "D3.js",
+          "percentage": 67.6
         },
         "1": {
-          "name": "",
-          "percentage": ""
+          "name": "CSS",
+          "percentage": 17.1
         },
         "2": {
-          "name": "",
-          "percentage": ""
+          "name": "HTML",
+          "percentage": 15.3
         },
         "3": {
           "name": "",
@@ -163,16 +163,16 @@
       "img": "",
       "tech": {
         "0": {
-          "name": "",
-          "percentage": ""
+          "name": "D3.js",
+          "percentage": 67.4
         },
         "1": {
-          "name": "",
-          "percentage": ""
+          "name": "CSS",
+          "percentage": 16.7
         },
         "2": {
-          "name": "",
-          "percentage": ""
+          "name": "HTML:",
+          "percentage": 15.9
         },
         "3": {
           "name": "",
