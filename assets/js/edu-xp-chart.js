@@ -275,6 +275,8 @@ function drawEduChart(data){
   // Animations classes /!\ functions are not used here bc it would reset the chart el values and it is not the point
   // let circlesEdu = groupCirclesEduXP.selectAll('circles')
   circleEduXP.on('click', function(event, d) {
+    // reset text
+    d3.select('#eduXPInfo').classed('edu-info-visible', false);
     document.getElementById('eduXPChart').style.display = 'inline-block';
     document.getElementById('eduXPPlace').innerHTML = ''
     document.getElementById('eduXPTime').innerHTML = ''
@@ -403,9 +405,6 @@ function drawEduChart(data){
     let id = circleID.split('-')[circleID.split('-').length - 1]
     d3.select('#eduTitle-' + id).style('fill', colorsEdu.lightGray);
     d3.select(this).attr('r', circleR);
-
-    // reset text
-    d3.select('#eduXPInfo').classed('edu-info-visible', false);
 
 
     groupTextEduXP.selectAll('text').remove();
