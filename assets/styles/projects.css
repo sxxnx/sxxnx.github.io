@@ -3,9 +3,16 @@ h5 {
   margin: 0; /* reset default */
 }
 .projects-infos {
-  display: inline-block;
+  float: left;
   padding: 0 20px;
+  position: fixed;
+  top: 40px;
   width: 25%;
+}
+.projects-menu-title {
+  position: fixed;
+  right: 0px;
+  top: 30px;
 }
 .project-title {
   color: #CDB2E8;
@@ -44,7 +51,9 @@ h5 {
   width: 100%;
 }
 .projects-display {
-  display: inline-block;
+  /* display: inline-block; */
+  float: right;
+  margin: 20px 40px 0 0;
   text-align: center;
   vertical-align: top;
   width: 60%;
@@ -56,6 +65,7 @@ h5 {
   contain: content;
   cursor: pointer;
   display: inline-block;
+  margin-right: 15px;
   min-height: 250px;
   width: 45%;
 }
@@ -72,9 +82,12 @@ h5 {
   vertical-align: super;
 }
 .more-link,
-.previous-link {
+.previous-link,
+.more-link:visited,
+.previous-link:visited {
   color: #8971A2;
   cursor: pointer;
+  display: block;
   font-family: 'Roboto Mono', monospace;
   font-size: 20px;
 }
@@ -91,7 +104,7 @@ h5 {
   content: '<';
   margin-right: 10px;
 }
-.project-row-0 {
+.projects-row {
   margin-bottom: 10px;
 }
 .project-card-0 {

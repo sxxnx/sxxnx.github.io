@@ -19,7 +19,6 @@ function drawPJChart(data) {
 
   // COLORS
   const colorsPj = ['#CDB2E8','#9563C6','#8971A2','#D1CCD6'];
-  const numberOfElements = Object.keys(pjData).length - 1; // intro is not an element of the list
   const numberOfCards = 3; // number of cards displayed on page
 
   // set default size of chart
@@ -59,96 +58,135 @@ function drawPJChart(data) {
     document.getElementById('groupLabels').innerHTML = '';
   }
 
-  // insertData
-  // insert data in cards
-  // args
-  // sId : int - start id
-  function insertData(sId) {
-    // Insert projects data
-    let cardsNumb = (document.getElementsByClassName('project-card').length) - 1; // -1 because one card is for link
+  // insertRows()
+  // insert rows depending on the size on the dataSet
+  function insertRows() {
+    let rowN = 0;
     Object.entries(pjData).map(function(item, i) {
-      if((i == sId)) {
-        projectsData.push(item)
-        let dataOfItem = getDataLang(item[1]);
-        if(item[0] == 'intro') {
-          document.getElementById('projectCard-' + sId).setAttribute('class', 'card-empty');
-          document.getElementById('projectImage-'+ sId).innerHTML = '';
-          document.getElementById('projectCardTitle-' + sId).innerHTML = '';
-        }
-        else if(document.getElementById('projectCard-' + sId) !== null) {
-            //reset
-            document.getElementById('projectImage-'+ sId).innerHTML = '';
-            document.getElementById('projectImage-'+ sId)
-                    .insertAdjacentHTML(
-                      'afterbegin',
-                      '<img alt="'+ dataOfItem.title + ' project image" src= "assets/imgs/'+ item[1].img +'.png"/>'
-                    );
-            //reset
-            document.getElementById('projectCardTitle-' + sId).innerHTML = '';
-            document.getElementById('projectCardTitle-' + sId).textContent = dataOfItem.title;
-          }
-          sId = sId +1;
+      if(i%2 == 0) {
+        document.getElementById('projectsDisplay')
+                .insertAdjacentHTML(
+                  'beforeend',
+                  '<div id="projectsRow-'+ rowN +'"class="projects-row"/>'
+                );
+        rowN = rowN + 1;
       }
-
     })
   }
 
+  // insertCardsStructure()
+  // insert html code for cards depending on the dataset
+  function insertCardsStructure() {
+    let rows = document.getElementsByClassName('projects-row');
+    for(r = 0; r < rows.length; r++) {
+      // append 2 cards for each row
+      document.getElementById('projectsRow-' + r).insertAdjacentHTML(
+        'afterbegin',
+        '<div class="project-card card-empty"><div id="projectImage" class="project-image"></div><h5 id="projectTitle" class="project-card-title"/></div>'
+      );
+      document.getElementById('projectsRow-' + r).insertAdjacentHTML(
+        'afterbegin',
+        '<div class="project-card card-empty"><div class="project-image"></div><h5 class="project-card-title"/></div>'
+      );
+    }
+  }
+
+  // insertData
+  // insert data in cards
+  // args
+  function insertData() {
+    // get all cards elements
+    let cards  = document.getElementsByClassName('project-card');
+    let titles = document.getElementsByClassName('project-card-title');
+    let images = document.getElementsByClassName('project-image');
+    // iterate through data and set ids
+    Object.entries(pjData).map(function(item, i) {
+      // remove the empty card class if an element is in the list
+      cards[i].classList.remove('card-empty');
+      cards[i].setAttribute('id', 'projectCard-' + i);
+      let thisCard = document.getElementById('projectCard-' + i);
+      let childrenEl = thisCard.childNodes;
+      // set data
+      childrenEl[0].innerHTML = '<img alt="'+ item[1].lang.en.title + ' project image" src= "assets/imgs/'+ item[1].img +'.png"/>';
+      childrenEl[1].innerHTML = item[1].lang.en.title;
+    });
+  }
+
   // reset cards
   // reset cards
   // args
-  // lastId : int - last ID of the last card
   // isMore : bol if true : use more function
-  function resetCards(lastId, isMore) {
-    if(isMore = true) {
-      let id = parseInt(lastId) + 1; //id on the next el
-      let elementsLeft = numberOfElements - (parseInt(lastId) + 1) // counting from 0
-      if(elementsLeft <= numberOfCards) {
-        // reset
-        document.getElementById('moreProjects').innerHTML = '';
-        document.getElementById('moreProjects').insertAdjacentHTML(
-          'afterbegin',
-          '<a id="previousProject" class="previous-link">'+ getDataLang(pjData.intro).previouslink+'</a>'
-          );
-      }
-      // reset ids - iterate through the 3 elements of the previous page and change id
-      let newIds = [];
-      let ref = 0;
-      for(i = id; i < id + numberOfCards; i++) {newIds.push(i)}
-      newIds.sort((a,b)=>b-a)
-
-      for(prevI = lastId; prevI > lastId - numberOfCards; prevI--) {
-        let card = document.getElementById('projectCard-' + prevI);
-        let img = document.getElementById('projectImage-' + prevI);
-        let title = document.getElementById('projectCardTitle-' + prevI);
-
-        card.removeAttribute('id');
-        img.removeAttribute('id');
-        title.removeAttribute('id');
-
-        // set ids
-        card.setAttribute('id', 'projectCard-' + newIds[ref]);
-        img.setAttribute('id', 'projectImage-' + newIds[ref]);
-        title.setAttribute('id', 'projectCardTitle-' + newIds[ref]);
-
-        ref = ref + 1;
-      }
-      // insert data
-      insertData(id);
-    }
-
-  }
+  // function resetCards(isMore) {
+  //   let lastElement = Array.from(document.querySelectorAll('.project-card-pj')).pop();
+  //   let idLen = lastElement.getAttribute('id').split('-').length;
+  //   let id = lastElement.getAttribute('id').split('-')[idLen - 1];
+  //   const numberOfElements = Object.keys(pjData).length;
+  //   // Object.entries(pjData).map(function(item, i) {
+  //   // if the link is to show more projects
+  //   if(isMore = true) {
+  //     let id = parseInt(lastId) + 1; //id of the next el
+  //     let elementsLeft = numberOfElements - (parseInt(lastId) + 1) // counting from 0
+  //     if(elementsLeft <= numberOfCards) {
+  //       // reset
+  //       document.getElementById('moreProjects').innerHTML = '';
+  //       document.getElementById('moreProjects').insertAdjacentHTML(
+  //         'afterbegin',
+  //         '<a id="previousProject" class="previous-link">Previous projects</a>'
+  //         );
+  //     }
+  //     // if moreelements in the list after
+  //     else {
+  //       // reset
+  //       document.getElementById('moreProjects').innerHTML = '';
+  //       document.getElementById('moreProjects').insertAdjacentHTML(
+  //         'afterbegin',
+  //         '<a id="previousProject" class="previous-link">Previous projects</a>'+
+  //         '<a id="moreProject" class="more-link">More projects</a>'
+  //         );
+  //     }
+  //     // reset ids - iterate through the 3 elements of the previous page and change id
+  //     let newIds = [];
+  //     let ref = 0;
+  //
+  //     for(i = id; i < id + numberOfCards; i++) {newIds.push(i)}
+  //     // sort the list
+  //     newIds.sort((a,b)=>b-a)
+  //
+  //     for(prevI = lastId; prevI > lastId - numberOfCards; prevI--) {
+  //       let card = document.getElementById('projectCard-' + prevI);
+  //       let img = document.getElementById('projectImage-' + prevI);
+  //       let title = document.getElementById('projectCardTitle-' + prevI);
+  //
+  //       card.removeAttribute('id');
+  //       img.removeAttribute('id');
+  //       title.removeAttribute('id');
+  //
+  //       // set ids
+  //       card.setAttribute('id', 'projectCard-' + newIds[ref]);
+  //       img.setAttribute('id', 'projectImage-' + newIds[ref]);
+  //       title.setAttribute('id', 'projectCardTitle-' + newIds[ref]);
+  //
+  //       ref = ref + 1;
+  //     }
+  //     // insert data
+  //     insertData(id);
+  //   }
+  //   // else isless
+  //
+  // }
 
   // Base text init
-  document.getElementById('projectTitle').textContent = getDataLang(pjData.intro).title;
-  document.getElementById('projectDesc').textContent = getDataLang(pjData.intro).description;
-  document.getElementById('git').href = pjData.intro.git;
-  document.getElementById('demo').href = pjData.intro.demo;
-  document.getElementById('projectTechUsed').textContent = getDataLang(pjData.intro).techUsed;
-  document.getElementById('moreProjects')
-          .insertAdjacentHTML(
-            'afterbegin',
-            '<a class="more-link">'+ getDataLang(pjData.intro).morelink+'</a>'
-          );
+  // document.getElementById('projectTitle').textContent = getDataLang(pjData.intro).title;
+  // document.getElementById('projectDesc').textContent = getDataLang(pjData.intro).description;
+  // document.getElementById('git').href = pjData.intro.git;
+  // document.getElementById('demo').href = pjData.intro.demo;
+  // document.getElementById('projectTechUsed').textContent = getDataLang(pjData.intro).techUsed;
+  // document.getElementById('moreProjects')
+  //         .insertAdjacentHTML(
+  //           'afterbegin',
+  //           '<a class="more-link">'+ getDataLang(pjData.intro).morelink+'</a>'
+  //         );
+
 
   // // Insert projects data
   // Insert projects data
@@ -157,6 +195,7 @@ function drawPJChart(data) {
     projectsData.push(item)
     if(i <= cardsNumb) {
       let dataOfItem = getDataLang(item[1]);
+      console.log(dataOfItem)
       if(document.getElementById('projectCard-' + i) !== null) {
         document.getElementById('projectImage-'+ i)
                 .insertAdjacentHTML(
@@ -167,6 +206,7 @@ function drawPJChart(data) {
       }
     }
   })
+
 
   // Draw chart
   const w = d3.select('#pJSVG').node().getBoundingClientRect().width;
@@ -230,21 +270,23 @@ function drawPJChart(data) {
                .text(d => d.name);
   })
 
+  insertRows();
+  insertCardsStructure();
+  insertData();
+
   // more link / previous link event
-  d3.selectAll('.more-link').on('click', function() {
-    let lastElement = Array.from(document.querySelectorAll('.project-card-pj')).pop();
-    let idLen = lastElement.getAttribute('id').split('-').length;
-    let id = lastElement.getAttribute('id').split('-')[idLen - 1];
-    // reset
-    resetCards(id, true)
-  })
-  // TODO PREVIOUS LINK
   // d3.selectAll('.more-link').on('click', function() {
-  //   let lastElement = Array.from(document.querySelectorAll('.project-card-pj')).pop();
-  //   let idLen = lastElement.getAttribute('id').split('-').length;
-  //   let id = lastElement.getAttribute('id').split('-')[idLen - 1];
+  //
   //   // reset
-  //   resetCards(id, true)
+  //   // resetCards(id, true)
+  // })
+  // // TODO PREVIOUS LINK
+  // // d3.select('#moreProject#previousProject').on('click', function() {
+  // //   console.log('click')
+  // //
+  // //   console.log(lastElement)
+  //   // reset
+  //   // resetCards(id, true)
   // })
 
 }

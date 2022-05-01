@@ -34,7 +34,7 @@
       }
     },
     "0" : {
-      "git" : "https://github.com/sxxnx",
+      "git" : "https://github.com/sxxnx/Data-sana",
       "demo": "https://sxxnx.github.io",
       "img": "datasana",
       "tech": {
@@ -65,7 +65,7 @@
       }
     },
     "1" : {
-      "git" : "https://github.com/sxxnx",
+      "git" : "https://github.com/sxxnx/Interactive-timeline",
       "demo": "https://sxxnx.github.io",
       "img": "d3ITL",
       "tech": {
@@ -96,7 +96,7 @@
       }
     },
     "2" : {
-      "git" : "https://github.com/sxxnx",
+      "git" : "https://github.com/sxxnx/DVS-WebChart",
       "demo": "https://sxxnx.github.io",
       "img": "dvs",
       "tech": {
@@ -127,7 +127,7 @@
       }
     },
     "3" : {
-      "git" : "https://github.com/sxxnx",
+      "git" : "https://github.com/sxxnx/Fraud-detection-viz",
       "demo": "https://sxxnx.github.io",
       "img": "",
       "tech": {
@@ -150,7 +150,7 @@
       },
       "lang": {
         "en":{
-          "title": "Fraud Viz",
+          "title": "Fraud Detection Viz",
           "description": "A project I did for a company. It was made too quicly visualize the level of fraud risk of each transaction in a web-shop. The project is not responsive as it was not useful for the final purpose of the chart."
         },
         "fr":{},
@@ -158,7 +158,7 @@
       }
     },
     "4" : {
-      "git" : "https://github.com/sxxnx",
+      "git" : "https://github.com/sxxnx/portfoliov2",
       "demo": "https://sxxnx.github.io",
       "img": "",
       "tech": {
@@ -168,11 +168,11 @@
         },
         "1": {
           "name": "CSS",
-          "percentage": 16.7
+          "percentage": 16.8
         },
         "2": {
           "name": "HTML:",
-          "percentage": 15.9
+          "percentage": 15.8
         },
         "3": {
           "name": "",
@@ -183,6 +183,37 @@
         "en":{
           "title": "Portfolio v2",
           "description": "This is simply my old portfolio."
+        },
+        "fr":{},
+        "jp":{}
+      }
+    },
+    "5" : {
+      "git" : "https://github.com/sxxnx/ng-anonymised-site",
+      "demo": "https://github.com/sxxnx/ng-anonymised-site",
+      "img": "yoga",
+      "tech": {
+        "0": {
+          "name": "Typescript",
+          "percentage": 53.9
+        },
+        "1": {
+          "name": "Sass",
+          "percentage": 21.9
+        },
+        "2": {
+          "name": "HTML:",
+          "percentage": 24.2
+        },
+        "3": {
+          "name": "",
+          "percentage": ""
+        }
+      },
+      "lang": {
+        "en":{
+          "title": "Angular website",
+          "description": "An angular website I made for a yoga teacher"
         },
         "fr":{},
         "jp":{}
