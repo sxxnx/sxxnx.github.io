@@ -2,7 +2,7 @@
 //// SETUP
 // TODO RAW DATA
 document.addEventListener('DOMContentLoaded', function(){
-  d3.json('https://raw.githubusercontent.com/sxxnx/DataSetsTemp/main/sxxnx-gthb-data/dumpdata3.json').then(function(data) {
+  d3.json('https://raw.githubusercontent.com/sxxnx/sxxnx.github.io/main/assets/data/edu-xp-data.json').then(function(data) {
       drawEduChart(data);
   })
 });

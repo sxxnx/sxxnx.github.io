@@ -2,7 +2,7 @@
 //// SETUP
 // TODO RAW DATA
 document.addEventListener('DOMContentLoaded', function(){
-  d3.json('https://raw.githubusercontent.com/sxxnx/DataSetsTemp/main/sxxnx-gthb-data/dumpdata2.json').then(function(data) {
+  d3.json('https://raw.githubusercontent.com/sxxnx/sxxnx.github.io/main/assets/data/menu-lang.json').then(function(data) {
       drawChart(data);
   })
 });
