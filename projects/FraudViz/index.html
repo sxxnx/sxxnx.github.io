@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500|Thasadith:400,700|Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fraud.css">
+    <!-- Libs -->
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <!-- End libs -->
+		<script type="text/javascript" src="assets/fraud.js"></script>
+    <title>Data Visualization for fraud detection</title>
+  </head>
+  <body>
+    <h1 class="page-title">Data Visualization for fraud detection</h1>
+    <div class='explanations'>
+      <p>The chart is not responsive</p>
+      <p>This parallel cordinates chart displays every transaction made.<p>
+      <p>The color of the lines depends on the user's behavior detected by the system</p>
+      <p>In the info area (left) there are several pieces of information that can be displayed when clicking on an ID of the chart.
+        The info is going to be filled with the names used by the user id and the total number of different names used with that ID, along with the emails addresses and their number, the addresses and their number and the IPs and their numbers.
+        The percentage of refused transactions is also available based on the dataset number of transactions for the given ID (in parenthesis) and the ratio of refused transactions.
+    </div>
+    <div class="info">
+      <i class="cross-icon material-icons">close</i>
+      <p class='current-user-id'>Current ID:<span class='current-value user-id'></span></p>
+      <p class='current-user-name'>Current name(s):<span class='current-value user-name'></span></p>
+      <p class='current-user-email'>Current e-mail(s):<span class='current-value user-email'></span></p>
+      <p class='current-user-address'>Current addresse(s):<span class='current-value user-address'></span></p>
+      <p class='current-user-ip'>Current IP(s):<span class='current-value user-ip'></span></p>
+      <p class='current-transaction-refused'>Percentage of refused transaction:<span class='current-value trans-refused'></span></p>
+    </div>
+    <div class="leg">
+      <p class='line-leg r-0'>No fraud, no payment refused</p>
+      <p class='line-leg r-1'>No fraud, at least one payment refused</p>
+      <p class='line-leg r-2'>At least one fraud, no payment refused</p>
+      <p class='line-leg r-3'>At least one fraud, at least one payment refused</p>
+    </div>
+    <div id='chart'></div>
+  </body>
+</html>

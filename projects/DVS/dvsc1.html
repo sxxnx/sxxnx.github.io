@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Thasadith" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="dvsc1.css">
+    <!-- Libs -->
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <!-- End libs -->
+		<script type="text/javascript" src="dvsc1.js"></script>
+    <title>Data Visualization Society Challenge</title>
+  </head>
+  <body>
+    <div id='wrapper'>
+      <h1>Data Visualization Society Challenge</h1>
+      <h2>Summary</h2>
+      <p>Here is my contribution to the first Data Visualization Society Challenge. The data includes the
+        first 3500 members of the Slack. Each member had to evaluate him/herself in 3 main topics : Data, Visualization
+         and Society (each one divided into 3 sub-topics). The dataset is composed of the mean score of each member
+         in the 3 main topics and the position (lat, long) and time each member subscribed.</p>
+      <h2>Reading the chart</h2>
+      <div class='explanation'>
+        <p>I divided the data between all continents, the algorithm to sort by continent may not be perfect, that is why
+        there is some data falling into the "Other" category (or maybe people for outer space ;)).</p>
+        <p>The main goal of the chart is to visualize where the members come from and how they evaluate themselves in both
+        categories : Data, Visualization and Society.</p>
+        <p>If you hover the different continents you get some extra info about each one, such as the mean score for
+        each category and the number of members.</p>
+      </div>
+      <div id='explanationChart'></div>
+      <div id='chart'></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+/**** BASE ****/
+body {
+  padding: 0 40px;
+}
+/**** TITLES ****/
+.page-title {
+  font-family: 'Thasadith', sans-serif;
+  font-weight: 400;
+}
+.page-title:after {
+  background-color: #82ccdd;
+  content: '';
+  display: block;
+  height: 2px;
+  width: 50%;
+}
+/**** EXPLANATIONS ****/
+.explanations p {
+  color: #888;
+  font-family: 'Thasadith', sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+.explanations {
+  margin-bottom: 40px;
+}
+.explanations:after {
+  background-color: #ccc;
+  content: '';
+  display: block;
+  height: 1px;
+  margin: 40px auto 0 auto;
+  width: 200px;
+}
+/**** LEGENDS ****/
+.info {
+  float: left;
+  margin-left: 40px;
+  max-width: 600px;
+  min-width: 200px;
+}
+.info .cross-icon {
+  color: #ccc9c9;
+  float: right;
+  opacity: 0;
+  cursor: pointer;
+}
+.current-value {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  margin-left: 5px;
+  text-transform: lowercase;
+}
+.expand {
+  animation: expand 0.7s cubic-bezier(0.215, 0.600, 0.355, 1.000) both;
+}
+.current-value.user-name {
+  text-transform: capitalize;
+}
+.leg {
+  float: right;
+  margin-right: 40px;
+}
+.info p,
+.leg p {
+  color: #888;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+.leg p {
+  font-size: 12px;
+}
+.line-leg:before {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+  width: 20px;
+}
+.r-0:before {
+  background-color: #3bda04;
+}
+.r-1:before {
+  background-color: #ffd100;
+}
+.r-2:before {
+  background-color: #ff8b00;
+}
+.r-3:before {
+  background-color: #f9463f;
+}
+/**** CHART ****/
+.axis-details text {
+  fill: #ccc9c9;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+.transaction {
+  fill: none;
+  stroke-opacity: 0.5;
+  transition: stroke-opacity 0.2s ease-in-out;
+}
+.user-id .tick text {
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+path.risk-0 {
+  stroke: #3bda04;
+}
+text.risk-0 {
+  color: #3bda04;
+}
+path.risk-1 {
+  stroke: #ffd100;
+}
+text.risk-1 {
+  color: #f1c70b;
+}
+path.risk-2 {
+  stroke: #ff8b00;
+}
+text.risk-2 {
+  color: #ff8b00;
+}
+path.risk-3 {
+  stroke: #f9463f;
+}
+text.risk-3 {
+  color: #f9463f;
+}
+.user-name .tick line,
+.user-email .tick line,
+.user-address .tick line,
+.user-ip .tick line {
+  opacity: 0;
+}
+.user-name .tick text,
+.user-email .tick text,
+.user-address .tick text,
+.user-ip .tick text {
+  fill: #444;
+  font-family: 'Thasadith', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  opacity: 0;
+}
+.user-id .tick line {
+  stroke: #a0a0a0;
+}
+.user-id .domain,
+.user-name .domain,
+.user-email .domain,
+.user-address .domain,
+.user-ip .domain {
+  stroke: #a0a0a0;
+}
+
+/**** ANIMATIONS ****/
+@keyframes expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

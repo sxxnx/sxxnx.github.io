@@ -1,0 +1,22 @@
+html {
+    background-color: #000;
+}
+#chart {
+    text-align: center;
+}
+.benefitArc {
+    fill-opacity: 0.85;
+	/* stroke: #AAAAAA; */
+}
+.benefitsText {
+    fill: black;
+    font-size: 10px;
+}
+.line {
+    stroke-width: 1px;
+    stroke-opacity: 0.45; */
+    /* filter: url(#glowy); */
+}
+.posesArc {
+    /* fill-opacity: 0; */
+}

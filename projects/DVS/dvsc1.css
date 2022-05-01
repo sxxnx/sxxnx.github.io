@@ -1,0 +1,77 @@
+html {
+  font-family: 'Thasadith', sans-serif;
+}
+h1 {
+  color: #4a69bd;
+  font-size: 36px;
+  font-weight: bold;
+}
+h2:after {
+  background-color: #4a69bd3b;
+  content: '';
+  display: block;
+  height: 10px;
+  margin: -10px 0 0 0;
+  width: 20%;
+}
+svg {
+  padding: 20px 40px;
+}
+#wrapper {
+  padding: 0 50px;
+}
+#chart {
+  margin: 0 auto;
+}
+p {
+  font-size: 18px;
+}
+.cont-arc {
+  fill: none;
+}
+.continent-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+path {
+  stroke: 'none';
+}
+.explanation {
+  display: inline-block;
+  vertical-align: top;
+  width: 60%;
+}
+#explanationChart {
+  display: inline-block;
+}
+.text-info {
+  fill: #444;
+  /* font-family: 'Roboto', sans-serif; */
+}
+.info-c-name {
+  fill: #4a69bd;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+.number-info,
+.data-info,
+.viz-info,
+.soc-info  {
+  fill: #aaa;
+  font-family: 'Roboto', sans-serif;
+}
+.data-info {
+  fill: #f6b93b;
+}
+.viz-info {
+  fill: #079992;
+}
+.soc-info {
+  fill: #b71540;
+}
+.line-society {
+  display: none; /* bc there is an error in the algo but it has been so long and i don't feel like fixing it rn */ 
+}
