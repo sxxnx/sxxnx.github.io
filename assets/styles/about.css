@@ -21,7 +21,7 @@ h3 {
 }
 .about-img img {
   bottom: 0;
-  left: 15%;
+  left: 5%;
   position: absolute;
   width: 300px; /* fixed size */
   z-index: 2;
