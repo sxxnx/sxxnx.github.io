@@ -72,6 +72,11 @@ h3 {
 .contact-links a {
   opacity: 1;
 }
+.contact-links a:hover {
+  opacity: 0.5;
+  transition: opacity 0.8s;
+  -webkit-transition: opacity 0.8s;
+}
 .contact-icon {
   font-size: 30px;
   margin: 0 10px;
