@@ -173,4 +173,10 @@ function drawPJChart(data) {
                .attr('dy', '0.35em')
                .text(d => d.name);
   })
+  d3.selectAll('.project-card').on('mouseover', function(){
+     d3.select(this).classed('card-hover', true);
+  });
+  d3.selectAll('.project-card').on('mouseout', function(){
+     d3.select(this).classed('card-hover', false);
+  });
 }

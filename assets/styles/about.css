@@ -51,7 +51,7 @@ h3 {
   color: #9563C6;
   font-family: 'Homemade Apple', cursive;
   font-size: 34px;
-  /* margin: 40px 0; */
+  font-weight: normal;
 }
 .hire-me {
   color: #8971A2;
@@ -73,7 +73,8 @@ h3 {
   opacity: 1;
 }
 .contact-icon {
-  font-size: 25px;
+  font-size: 30px;
+  margin: 0 10px;
 }
 .separator::after {
   background-color: #8971A2;

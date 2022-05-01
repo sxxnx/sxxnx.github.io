@@ -37,7 +37,7 @@ function drawEduChart(data){
 
   const groupLinesEduXP = svgEdu.append('g').classed('group-lines-eduXP', true).attr('id', 'groupLinesEduXP');
   const groupCirclesEduXP = svgEdu.append('g').classed('group-circle-eduXP', true).attr('id', 'groupCirclesEduXP');
-  const groupTextEduXP = svgEdu.append('g').attr('id', 'groupTextEduXP');
+  const groupTextEduXP = svgEdu.append('g').attr('id', 'groupTextEduXP').classed('group-edu-text', true);
 
   // Var of the size
   let chartW = svgEdu.node().getBoundingClientRect().width;
@@ -318,9 +318,6 @@ function drawEduChart(data){
                          }
                          return slidedX + circleR;
                        }
-                       // else if(circleX - circleR * 1.8 < minCoord){
-                       //   return circleX + circleR * 1.8
-                       // }
                        return parseInt(d3.select(this).node().getAttribute('cx'));
                      })
                    .attr('cy', function(d, i){
@@ -384,6 +381,12 @@ function drawEduChart(data){
     drawLines(groupLinesEduXP, eduData, groupCirclesEduXP, '#circleEdu-');
   });
 
+  circleEduXP.on('mouseover', function() {
+    d3.select(this).classed('circle-hover', true);
+    d3.select(this).style('fill', colorsEdu.lightPurple);
+    d3.select(this).style('opacity', 0.8);
+  });
+
   // MOUSEOUT
   // reset all /!\ functions are not used here bc it would reset the chart el values and it is not the point
   circleEduXP.on('mouseout', function() {
@@ -402,22 +405,12 @@ function drawEduChart(data){
     d3.select(this).attr('r', circleR);
 
     // reset text
+    d3.select('#eduXPInfo').classed('edu-info-visible', false);
+
+
     groupTextEduXP.selectAll('text').remove();
     let eduXPTitles = appendEduText(groupTextEduXP, eduData);
     // Place text
     placeEduText(groupTextEduXP)
-    // //reset paths
-    // groupLinesEduXP.selectAll('path').remove();
-    // drawLines(groupLinesEduXP, eduData, groupCirclesEduXP, '#circleEdu-');
-
-    // reset div info
-    // let idSelected = d.id
-
-    // d3.select('#eduXPInfo').classed('edu-info-visible', false);
-    // // document.getElementById('eduXPInfo').style.minHeight = chartH + 'px';
-    // document.getElementById('eduXPPlace').innerHTML = ''
-    // document.getElementById('eduXPTime').innerHTML = ''
-    // document.getElementById('eduXPInfoTitle').innerHTML = ''
-    // document.getElementById('eduXPInfoText').innerHTML = ''
   });
 }
