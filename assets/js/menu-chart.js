@@ -34,8 +34,6 @@ function drawChart(data){
                 .attr('width', chartParam.width)
                 .attr('height', chartParam.height);
 
-  // const rDisplay = simScrubber(100); // TODO DISPLAY NODES AROUND GUIDECIRCLE
-                // .attr('overflow', 'hidden')
   const nodes = nodeData.map(d => Object.create(d));
 
   // VARS
@@ -63,7 +61,6 @@ function drawChart(data){
   const innerRadius = r(0.5);
   const outerRadius = r(0.6);
 
-  // TODO VALUES = make it invisble
   // Circle guide
   const guideCircle = svg.append('circle')
                          .attr('cx', x(0.5))
@@ -188,9 +185,6 @@ function drawChart(data){
                             return 'circle-anim-'+ rdmNumb
                           }
                         })
-                        // .attr('id', function(d, i) {
-                        //   return 'circle-' + i;
-                        // })
                         .attr('cx', function(d){
                           let centroid = arc.centroid(d)
                           return centroid[0] + x(0.5)
