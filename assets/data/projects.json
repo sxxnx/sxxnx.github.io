@@ -1,38 +1,5 @@
 [
   {
-    "intro" : {
-      "git" : "https://github.com/sxxnx",
-      "demo": "https://sxxnx.github.io",
-      "tech": {
-        "0": {
-          "name": "",
-          "percentage": ""
-        },
-        "1": {
-          "name": "",
-          "percentage": ""
-        },
-        "2": {
-          "name": "",
-          "percentage": ""
-        },
-        "3": {
-          "name": "",
-          "percentage": ""
-        }
-      },
-      "lang": {
-        "en":{
-          "title": "Projects",
-          "description": "Here is a non exhaustive list of all the projects I have done so far. Some were lost, but I will try to update the list regularly.",
-          "morelink": "More projects",
-          "previouslink": "Previous projects",
-          "techUsed": "Tech. used"
-        },
-        "fr":{},
-        "jp":{}
-      }
-    },
     "0" : {
       "git" : "https://github.com/sxxnx/Data-sana",
       "demo": "https://sxxnx.github.io",
@@ -129,7 +96,7 @@
     "3" : {
       "git" : "https://github.com/sxxnx/Fraud-detection-viz",
       "demo": "https://sxxnx.github.io",
-      "img": "",
+      "img": "fraud",
       "tech": {
         "0": {
           "name": "D3.js",
@@ -160,7 +127,7 @@
     "4" : {
       "git" : "https://github.com/sxxnx/portfoliov2",
       "demo": "https://sxxnx.github.io",
-      "img": "",
+      "img": "portfolio",
       "tech": {
         "0": {
           "name": "D3.js",
@@ -171,7 +138,7 @@
           "percentage": 16.8
         },
         "2": {
-          "name": "HTML:",
+          "name": "HTML",
           "percentage": 15.8
         },
         "3": {
@@ -202,7 +169,7 @@
           "percentage": 21.9
         },
         "2": {
-          "name": "HTML:",
+          "name": "HTML",
           "percentage": 24.2
         },
         "3": {

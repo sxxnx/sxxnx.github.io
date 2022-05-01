@@ -21,10 +21,6 @@ function drawPJChart(data) {
   const colorsPj = ['#CDB2E8','#9563C6','#8971A2','#D1CCD6'];
   const numberOfCards = 3; // number of cards displayed on page
 
-  // set default size of chart
-  // svgEdu.attr('width', Math.min(window.innerWidth));
-  //       .attr('height', Math.min(window.innerHeight));
-
   // LANG VAR
   let lang = 'en'; // default is english TODO const
 
@@ -112,101 +108,9 @@ function drawPJChart(data) {
     });
   }
 
-  // reset cards
-  // reset cards
-  // args
-  // isMore : bol if true : use more function
-  // function resetCards(isMore) {
-  //   let lastElement = Array.from(document.querySelectorAll('.project-card-pj')).pop();
-  //   let idLen = lastElement.getAttribute('id').split('-').length;
-  //   let id = lastElement.getAttribute('id').split('-')[idLen - 1];
-  //   const numberOfElements = Object.keys(pjData).length;
-  //   // Object.entries(pjData).map(function(item, i) {
-  //   // if the link is to show more projects
-  //   if(isMore = true) {
-  //     let id = parseInt(lastId) + 1; //id of the next el
-  //     let elementsLeft = numberOfElements - (parseInt(lastId) + 1) // counting from 0
-  //     if(elementsLeft <= numberOfCards) {
-  //       // reset
-  //       document.getElementById('moreProjects').innerHTML = '';
-  //       document.getElementById('moreProjects').insertAdjacentHTML(
-  //         'afterbegin',
-  //         '<a id="previousProject" class="previous-link">Previous projects</a>'
-  //         );
-  //     }
-  //     // if moreelements in the list after
-  //     else {
-  //       // reset
-  //       document.getElementById('moreProjects').innerHTML = '';
-  //       document.getElementById('moreProjects').insertAdjacentHTML(
-  //         'afterbegin',
-  //         '<a id="previousProject" class="previous-link">Previous projects</a>'+
-  //         '<a id="moreProject" class="more-link">More projects</a>'
-  //         );
-  //     }
-  //     // reset ids - iterate through the 3 elements of the previous page and change id
-  //     let newIds = [];
-  //     let ref = 0;
-  //
-  //     for(i = id; i < id + numberOfCards; i++) {newIds.push(i)}
-  //     // sort the list
-  //     newIds.sort((a,b)=>b-a)
-  //
-  //     for(prevI = lastId; prevI > lastId - numberOfCards; prevI--) {
-  //       let card = document.getElementById('projectCard-' + prevI);
-  //       let img = document.getElementById('projectImage-' + prevI);
-  //       let title = document.getElementById('projectCardTitle-' + prevI);
-  //
-  //       card.removeAttribute('id');
-  //       img.removeAttribute('id');
-  //       title.removeAttribute('id');
-  //
-  //       // set ids
-  //       card.setAttribute('id', 'projectCard-' + newIds[ref]);
-  //       img.setAttribute('id', 'projectImage-' + newIds[ref]);
-  //       title.setAttribute('id', 'projectCardTitle-' + newIds[ref]);
-  //
-  //       ref = ref + 1;
-  //     }
-  //     // insert data
-  //     insertData(id);
-  //   }
-  //   // else isless
-  //
-  // }
-
-  // Base text init
-  // document.getElementById('projectTitle').textContent = getDataLang(pjData.intro).title;
-  // document.getElementById('projectDesc').textContent = getDataLang(pjData.intro).description;
-  // document.getElementById('git').href = pjData.intro.git;
-  // document.getElementById('demo').href = pjData.intro.demo;
-  // document.getElementById('projectTechUsed').textContent = getDataLang(pjData.intro).techUsed;
-  // document.getElementById('moreProjects')
-  //         .insertAdjacentHTML(
-  //           'afterbegin',
-  //           '<a class="more-link">'+ getDataLang(pjData.intro).morelink+'</a>'
-  //         );
-
-
-  // // Insert projects data
-  // Insert projects data
-  let cardsNumb = (document.getElementsByClassName('project-card').length) - 1; // -1 because one card is for link
-  Object.entries(pjData).map(function(item, i) {
-    projectsData.push(item)
-    if(i <= cardsNumb) {
-      let dataOfItem = getDataLang(item[1]);
-      console.log(dataOfItem)
-      if(document.getElementById('projectCard-' + i) !== null) {
-        document.getElementById('projectImage-'+ i)
-                .insertAdjacentHTML(
-                  'afterbegin',
-                  '<img alt="'+ dataOfItem.title + ' project image" src= "assets/imgs/'+ item[1].img +'.png"/>'
-                );
-        document.getElementById('projectCardTitle-' + i).textContent = dataOfItem.title;
-      }
-    }
-  })
-
+  insertRows();
+  insertCardsStructure();
+  insertData();
 
   // Draw chart
   const w = d3.select('#pJSVG').node().getBoundingClientRect().width;
@@ -222,16 +126,16 @@ function drawPJChart(data) {
   const groupLabels = svgPj.append('g').classed('group-label', true).attr('id', 'groupLabels');
 
   // set event click
-  d3.selectAll('.project-card-pj').on('click', function(){
+  d3.selectAll('.project-card').on('click', function(){
     // reset
     resetChartAndText()
 
     let id = d3.select(this).node().getAttribute('id').split('-')[1]
 
     // add text
-    let dataPj= getDataLang(pjData[id]);
-    document.getElementById('projectTitle').textContent = dataPj.title;
-    document.getElementById('projectDesc').textContent = dataPj.description;
+    let dataPj= pjData[id];
+    document.getElementById('projectTitle').textContent = dataPj.lang.en.title;
+    document.getElementById('projectDesc').textContent = dataPj.lang.en.description;
     document.getElementById('git').href = dataPj.git;
     document.getElementById('demo').href = dataPj.demo;
 
@@ -269,24 +173,4 @@ function drawPJChart(data) {
                .attr('dy', '0.35em')
                .text(d => d.name);
   })
-
-  insertRows();
-  insertCardsStructure();
-  insertData();
-
-  // more link / previous link event
-  // d3.selectAll('.more-link').on('click', function() {
-  //
-  //   // reset
-  //   // resetCards(id, true)
-  // })
-  // // TODO PREVIOUS LINK
-  // // d3.select('#moreProject#previousProject').on('click', function() {
-  // //   console.log('click')
-  // //
-  // //   console.log(lastElement)
-  //   // reset
-  //   // resetCards(id, true)
-  // })
-
 }
